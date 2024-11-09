@@ -1,13 +1,16 @@
 <?php
+header('Content-Type: application/json');
+
 // Replace with your Google API key
 $apiKey = 'AIzaSyBjHJSpWpUJTi5oXh3K2jyy2WNv6Ls-r2M';
+$user_input = "Sino pumatay kay lapu-lapu. Answer Only no explanation";
 
 // Set up the data to be sent as JSON
 $data = [
     "contents" => [
         [
             "parts" => [
-                ["text" => "Who inventen python"]
+                ["text" => $user_input]
             ]
         ]
     ]
@@ -43,8 +46,14 @@ if (curl_errno($curl)) {
 } else {
     // Display the response
     $data = json_decode($response, true);
+    $text = $data['candidates'][0]["content"]["parts"][0]['text'];
 
-    echo "<pre>" . $data['candidates'][0]["content"]["parts"][0]['text'];
+    $new = [
+        'Topic' => $user_input,
+        'Answer' => $text,
+    ];
+
+    echo json_encode($new);
 }
 
 // Close the cURL session
