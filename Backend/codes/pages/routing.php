@@ -13,6 +13,9 @@ switch($user_link){
     case "/user":
         require("API/dashboard/user.php");
         break;
+    case "/AI":
+        require("API/dashboard/AI.php");
+        break;
     default:
         http_response_code(404);
         break;
