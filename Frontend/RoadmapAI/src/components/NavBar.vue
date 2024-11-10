@@ -34,7 +34,7 @@
   
           <!-- Buttons aligned to the right for larger screens -->
           <div class="d-flex ms-auto">
-            <button class="loginBtn me-2" type="button">Login</button>
+            <button class="loginBtn me-2" type="button" @click="goToLogin">Login</button>
             <button class="signUpBtn" type="button">Sign Up</button>
           </div>
         </div>
@@ -45,8 +45,14 @@
   <script>
   export default {
     name: 'NavBar',
+    methods: {
+      goToLogin() {
+        this.$router.push('/login');
+      },
+    },
   };
   </script>
+
   
   <style scoped>
   @import './NavBar.css';
