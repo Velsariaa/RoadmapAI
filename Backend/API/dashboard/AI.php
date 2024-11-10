@@ -89,7 +89,7 @@ $data = [
     ]
 ];
 
-// Initialize cURL
+// Initialize cURL 
 $curl = curl_init();
 
 // Set the URL, including the API key
