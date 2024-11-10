@@ -3,7 +3,6 @@ header('Content-Type: application/json');
 
 // Replace with your Google API key
 $apiKey = 'AIzaSyBjHJSpWpUJTi5oXh3K2jyy2WNv6Ls-r2M';
-<<<<<<< Updated upstream
 $user_input = "make me a roadmap for python by filling this form topic and example only. dont add anything just fill this with this kind of structure.:
 \"
 
@@ -78,9 +77,6 @@ Example:
 \"
 
 follow the structure";
-=======
-$user_input = "Create me a python roadmap with 10 main topics, each main topic must consist sub topics with detailed explanation and examples and resource links. ";
->>>>>>> Stashed changes
 
 // Set up the data to be sent as JSON
 $data = [
@@ -93,7 +89,7 @@ $data = [
     ]
 ];
 
-// Initialize cURL 
+// Initialize cURL
 $curl = curl_init();
 
 // Set the URL, including the API key
