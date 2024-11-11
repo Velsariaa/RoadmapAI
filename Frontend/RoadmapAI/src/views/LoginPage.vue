@@ -11,28 +11,31 @@
           <div class="col-lg-7">
           <h1 class="title mb-4">Welcome Back!</h1>
           <p class="subtitle mb-4">Please enter your details.</p>
+
+          <form @submit.prevent="submitData">
   
-          <!-- Email -->
-          <div class="search-container">
-              <input 
-              type="text" 
-              class="search-input" 
-              v-model="query" 
-              placeholder="  Email"
-              />
-          </div>
+            <!-- Email -->
+            <div class="search-container">
+                <input 
+                type="text" 
+                class="search-input" 
+                v-model="username" 
+                placeholder="  Email"
+                />
+            </div>
 
-          <!-- Password -->
-          <div class="search-container">
-              <input 
-              type="text" 
-              class="search-input" 
-              v-model="query" 
-              placeholder="  Password"
-              />
-          </div>
+            <!-- Password -->
+            <div class="search-container">
+                <input 
+                type="text" 
+                class="search-input" 
+                v-model="password" 
+                placeholder="  Password"
+                />
+            </div>
 
-          <button class="loginBtn" type="button">LOGIN</button>
+            <button class="loginBtn" type="submit">LOGIN</button>
+            </form>
   
           </div>
       </div>
@@ -41,8 +44,30 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
-  name: 'LandingPage',
+  data() {
+    return {
+      username: '',
+      password: ''
+    };
+  },
+
+  methods: {
+    async submitData() {
+      try {
+        const response = await axios.post('http://localhost/login', {
+          username: this.username,
+          password: this.password
+        });
+        console.log('Response:', response.data);
+      } catch (error) {
+        console.error('There was an error!', error);
+      }
+    }
+  }
 };
 </script>
 
