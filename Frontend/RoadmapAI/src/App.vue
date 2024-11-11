@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <!-- Render LandingPage -->
+    <!-- Render Navbar on all pages -->
     <NavBar />
-    <LandingPage />
+    <!-- Render the current route's component -->
+    <router-view />
   </div>
 </template>
 
 <script setup>
-  import LandingPage from './views/LandingPage.vue';
-  import NavBar from './components/NavBar.vue';
-
+import NavBar from './components/NavBar.vue';
 </script>
