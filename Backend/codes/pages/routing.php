@@ -10,6 +10,9 @@ switch($user_link){
     case "/register":
         require("API/account/register.php");
         break;
+    case "/login":
+        require("API/account/login.php");
+        break;
     case "/user":
         require("API/dashboard/user.php");
         break;
