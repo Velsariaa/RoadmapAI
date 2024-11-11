@@ -1,5 +1,5 @@
 <template>
-    <div class="landing-page">
+    <div class="dashboard-page">
         <div class="container mt-5">
 
           <div class="row align-items-center">
