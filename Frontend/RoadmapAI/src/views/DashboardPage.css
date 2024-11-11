@@ -3,7 +3,7 @@
 }
 
 .landing-page{
-  min-height: 100vh;
+    min-height: 100vh;
   background: linear-gradient( rgba(255,255,255,1) 73%, rgba(46,187,212,1) 100%);
   padding-bottom: 20px;
 }
