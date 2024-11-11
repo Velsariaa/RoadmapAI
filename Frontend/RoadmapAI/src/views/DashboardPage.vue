@@ -15,10 +15,17 @@
               <button @click="createRoadmap" class="createbtn col-lg-12">CREATE A NEW ROADMAP</button>
             </div>
             
-            <div v-else class="content col-lg-12">
-              <p>Welcome to your new roadmap! lalagyan pa to ng cards</p>
-              
+            <div v-else class="content2 col-lg-12">
+              <button @click="createRoadmap" class="card-btn" style="border: none; padding: 0; background: none;">
+                    <div class="card" style="width: 18rem; cursor: pointer;">
+                        <div class="card-body">
+                            <img src="/src/assets/plus.png" alt="Roadmap" class="img-fluid" />
+                            <h5 class="card-title"> <b> Create Roadmap </b> </h5>
+                        </div>
+                    </div>
+              </button>
             </div>
+
         </div>
       </div>
   </div>
