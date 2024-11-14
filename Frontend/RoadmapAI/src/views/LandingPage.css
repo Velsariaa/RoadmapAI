@@ -7,6 +7,16 @@
   
 }
 
+.roadmapImg{
+  transition: transform 0.3s ease;
+}
+
+.roadmapImg:hover{
+  transform: translateY(-5px);
+}
+
+
+
 .rowPrompt {
   padding: 20px 150px 0px 200px;
   background: linear-gradient( rgba(255,255,255,1) 65%, rgba(46,187,212,1) 100%);
@@ -328,3 +338,53 @@ img {
   color: white;
 }
 
+.rowFAQs {
+  background-color: #fff;
+  color: #333;
+  padding: 40px 20px;
+  display: flex;
+  padding: 60px 150px 60px 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.faqs .title {
+  font-size: 60px;
+  color: #333;
+}
+
+.accordion-faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.custom-accordion .accordion-button {
+  background-color: #00bcd4; /* Custom background color */
+  color: white; /* Custom text color */
+  font-weight: bold;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  background-color: #00bcd4; /* Darker shade when open */
+  transition: transform 0.3s ease;
+}
+
+.custom-accordion .accordion-item {
+  border: none; /* Remove default borders */
+  margin-bottom: 20px; /* Add spacing between items */
+}
+
+.custom-accordion .accordion-body {
+  background-color: #f8f9fa; /* Light background for the content */
+  padding: 20px; /* Add padding to accordion body */
+  border-radius: 5px;
+  color: #333; /* Custom text color for body */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

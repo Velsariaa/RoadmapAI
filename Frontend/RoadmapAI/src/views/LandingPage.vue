@@ -4,7 +4,7 @@
       <!-- First Row: Prompt Section -->
       <div class="row align-items-center rowPrompt">
         <div class="col-lg-5 d-flex justify-content-center align-items-center">
-          <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid" />
+          <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid roadmapImg" />
         </div>
 
         <div class="col-lg-7">
@@ -109,6 +109,49 @@
         <div class="col-lg-6 features-cards">
           <h1>Carousels</h1>
         </div>
+      </div>
+
+      <div class="row rowFAQs">
+        <div class="col-lg-6 faqs">
+          <h1 class="title mb-2">Frequently Asked Questions</h1>
+          <p class="subtitle mb-4">Ready to create your own learning roadmap?</p>
+        </div>
+
+        <div class="col-lg-6 accordion-faqs">
+          <div class="accordion accordion-flush custom-accordion" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                  What topics and languages are available on RoadmapAI?
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">RoadmapAI covers a variety of programming languages, frameworks, and software engineering topics, including but not limited to JavaScript, Python, Java, HTML/CSS, React, Vue, and databases like MySQL. Each topic is broken down into main topics with detailed subtopics, allowing users to dive into fundamental and advanced concepts in their chosen area of interest.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  How does RoadmapAI track my learning progress?
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">RoadmapAI tracks progress by allowing users to mark topics and subtopics as completed as they go through each section. The app calculates and displays a percentage of the roadmap completed, making it easy for users to track how far they've come and what remains to be covered.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  What learning resources are available on RoadmapAI?
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">For each topic, RoadmapAI provides detailed descriptions, definitions, sample code, and additional resources such as links to articles, tutorials, and videos. These resources are carefully curated to offer comprehensive support for learning each topic.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
