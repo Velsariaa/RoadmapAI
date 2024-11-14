@@ -101,12 +101,9 @@ img {
 .rowFeatures {
   background-color: #00bcd4;
   color: white;
-  padding: 40px 20px;
-  display: flex;
   align-items: center;
   padding: 60px 150px 60px 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  user-select: none;
 }
 
 .features-title .title {
@@ -120,6 +117,8 @@ img {
   gap: 20px;
   user-select: none;
 }
+
+
 
 .feature-card {
   display: flex;
@@ -391,3 +390,90 @@ img {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+.rowtestimonials{
+  background-color: #00bcd4;
+  color: white;
+  align-items: center;
+  padding: 60px 0px 60px 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-carousel {
+  height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.testimonial-icon {
+  width: 17%;
+  padding: 8px 8px 8px 8px;
+  border-radius: 50%;
+  border: 2px solid #00bcd4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.testimonial-name h5{
+  font-size: 2.5vh;
+  padding-top: 5%;
+  padding-left: 5%;
+  text-align: left;
+  font-weight: 700;
+}
+.testimonial-course{
+  text-align: left;
+  padding-left: 5%;
+  line-height: 5px;
+}
+.testimonial-desc{
+  padding-top: 3%;
+  text-align: justify;
+  font-size: 2.3vh;
+}
+
+.testimonial-card {
+  position: absolute;
+  height: auto;
+  margin: auto;
+  transition: transform .4s ease, opacity .4s ease, z-index .4s ease;
+  text-decoration: none;
+  color: black;
+  
+  background-color: #ffffff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 50%;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-control {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.carousel-control.prev {
+  left: 0;
+}
+
+.carousel-control.next {
+  right: 0;
+}
+
+
