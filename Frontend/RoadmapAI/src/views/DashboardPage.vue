@@ -1,83 +1,53 @@
 <template>
-    <div class="landing-page">
-        <div class="container mt-5">
+  <div class="dashboard-page">
+      <div class="container mt-5">
         <div class="row align-items-center">
-            <!-- Column 1: Image -->
-            <div class="col-lg-5">
-            <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid" />
+            <div class="title col-lg-12"> Your Roadmaps </div>
+            <div class="subtitle col-lg-12">
+              Keep up the great work! You're on track to achieving your goals.
             </div>
-    
-            <!-- Column 2: Title, Subtitle, and Prompt Bar -->
-            <div class="col-lg-7">
-            <h1 class="title mb-4">Build Your<br>Path to <span class="success">Success</span></h1>
-            <p class="subtitle mb-4">Generate a personalized roadmap of your desired software engineering / information technology topics.</p>
-    
-            <!-- Prompt Bar -->
-            <div class="search-container">
-                <input 
-                type="text" 
-                class="search-input" 
-                v-model="query" 
-                placeholder="What do you want to learn today? (e.g., Python, React, Java)"
-                @keyup.enter="search"
-                />
-                <div class="search-button" @click="search">
-                ✓
-                </div>
+            
+            <!-- Conditional Rendering -->
+            <div v-if="!hasRoadmap" class="content col-lg-12">
+              You don't have any roadmaps yet! Start your learning journey by choosing a
+              topic and creating your first personalized roadmap.
+              <br>
+              <button @click="createRoadmap" class="createbtn col-lg-12">CREATE A NEW ROADMAP</button>
             </div>
-    
-            <!-- Suggested Topics -->
-            <div class="suggested-topics">
-                <div 
-                class="topic-button" 
-                v-for="topic in topics" 
-                :key="topic" 
-                @click="setQuery(topic)"
-                >
-                {{ topic }}
-                </div>
+            
+            <div v-else class="content2 col-lg-12">
+              <button @click="createRoadmap" class="card-btn" style="border: none; padding: 0; background: none;">
+                    <div class="card" style="width: 18rem; cursor: pointer;">
+                        <div class="card-body">
+                            <img src="/src/assets/plus.png" alt="Roadmap" class="img-fluid" />
+                            <h5 class="card-title"> <b> Create Roadmap </b> </h5>
+                        </div>
+                    </div>
+              </button>
             </div>
-            </div>
+
         </div>
-        </div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'LandingPage',
-    data() {
+      </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
       return {
-        query: '',
-        topics: [
-          'Frontend Development', 
-          'Backend Development', 
-          'Full Stack Development', 
-          'React', 
-          'Python', 
-          'JavaScript', 
-          'TypeScript', 
-          'Java',
-          'HTML',
-          'CSS'
-        ]
+          hasRoadmap: false
       };
-    },
-    methods: {
-      search() {
-        if (this.query) {
-          alert(`Searching for: ${this.query}`);
-          // Add search logic here
-        }
-      },
-      setQuery(topic) {
-        this.query = topic;
+  },
+  methods: {
+      createRoadmap() {
+          this.hasRoadmap = true;
       }
-    }
-  };
-  </script>
-  
-  <style scoped>
-  @import './DashboardPage.css';  
-  </style>
+  }
+};
+</script>
+
+<style scoped>
+@import './DashboardPage.css';  
+</style>
+
   
