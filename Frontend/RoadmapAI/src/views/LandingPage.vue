@@ -1,83 +1,165 @@
 <template>
-    <div class="landing-page">
-        <div class="container mt-5">
-        <div class="row align-items-center">
-            <!-- Column 1: Image -->
-            <div class="col-lg-5">
-            <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid" />
-            </div>
-    
-            <!-- Column 2: Title, Subtitle, and Prompt Bar -->
-            <div class="col-lg-7">
-            <h1 class="title mb-4">Build Your<br>Path to <span class="success">Success</span></h1>
-            <p class="subtitle mb-4">Generate a personalized roadmap of your desired software engineering / information technology topics.</p>
-    
-            <!-- Prompt Bar -->
-            <div class="search-container">
-                <input 
-                type="text" 
-                class="search-input" 
-                v-model="query" 
-                placeholder="What do you want to learn today? (e.g., Python, React, Java)"
-                @keyup.enter="search"
-                />
-                <div class="search-button" @click="search">
-                ✓
-                </div>
-            </div>
-    
-            <!-- Suggested Topics -->
-            <div class="suggested-topics">
-                <div 
-                class="topic-button" 
-                v-for="topic in topics" 
-                :key="topic" 
-                @click="setQuery(topic)"
-                >
-                {{ topic }}
-                </div>
-            </div>
-            </div>
+  <div class="landing-page">
+    <div class="container-fluid">
+      <!-- First Row: Prompt Section -->
+      <div class="row align-items-center rowPrompt">
+        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+          <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid" />
         </div>
+
+        <div class="col-lg-7">
+          <h1 class="title mb-4">Build Your<br>Path to <span class="success">Success</span></h1>
+          <p class="subtitle mb-4">Generate a personalized roadmap of your desired software engineering / information technology topics.</p>
+          <div class="search-container">
+            <input 
+              type="text" 
+              class="search-input" 
+              v-model="query" 
+              placeholder="What do you want to learn today? (e.g., Python, React, Java)"
+              @keyup.enter="search"
+            />
+            <div class="search-button" @click="search">
+              ✓
+            </div>
+          </div>
+
+          <div class="suggested-topics">
+            <div 
+              class="topic-button" 
+              v-for="topic in topics" 
+              :key="topic" 
+              @click="setQuery(topic)"
+            >
+              {{ topic }}
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Second Row: Features Section -->
+      <div class="row rowFeatures">
+        <div class="col-lg-6 features-title">
+          <h1 class="title mb-2">Our Features</h1>
+          <p class="subtitle mb-4">How Roadmap AI Helps You</p>
+        </div>
+
+        <div class="col-lg-6 features-cards">
+          <div class="feature-card" v-for="(feature, index) in features" :key="index">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Row: How It Works Section -->
+
+      <div class="row rowProcess">
+
+        <div class="col-lg-12 text-center process-title">
+          <h1 class="title mb-2">See how it works</h1>
+          <p class="subtitle mb-4">Explore the steps and process</p>
+        </div>
+
+        <div class="row rowSteps">
+          
+          <div class="col step-cards">
+            <div class="number-icon">1</div>
+            <h3 class="step-title">Choose a topic.</h3>
+              <p class="step-description">
+                Select a language or topic that aligns with your career goals or personal interests.
+              </p>
+          </div>
+          
+          <div class="col step-cards">
+            <div class="number-icon">2</div>
+            <h3 class="step-title">Get a roadmap.</h3>
+              <p class="step-description">
+                RoadmapAI generates a tailored roadmap organized into main topics and essential subtopics.
+              </p>
+          </div>
+
+          <div class="col step-cards">
+            <div class="number-icon">3</div>
+            <h3 class="step-title">Track Your Progress.</h3>
+              <p class="step-description">
+                Mark each completed topic to see your advancement on the roadmap, showing your learning progress.
+              </p>
+          </div>
+
+          <div class="col step-cards">
+            <div class="number-icon">4</div>
+            <h3 class="step-title">Explore Resources</h3>
+              <p class="step-description">
+                Every topic consists of links to external resources—tutorials, articles, and documentation
+              </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row rowFeatures">
+        <div class="col-lg-6 testimonials">
+          <h1 class="title mb-2">Testimonials</h1>
+          <p class="subtitle mb-4">Why people love Roadmap AI</p>
+        </div>
+
+        <div class="col-lg-6 features-cards">
+          <h1>Carousels</h1>
+        </div>
+      </div>
+
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'LandingPage',
-    data() {
-      return {
-        query: '',
-        topics: [
-          'Frontend Development', 
-          'Backend Development', 
-          'Full Stack Development', 
-          'React', 
-          'Python', 
-          'JavaScript', 
-          'TypeScript', 
-          'Java',
-          'HTML',
-          'CSS'
-        ]
-      };
-    },
-    methods: {
-      search() {
-        if (this.query) {
-          alert(`Searching for: ${this.query}`);
-          // Add search logic here
-        }
-      },
-      setQuery(topic) {
-        this.query = topic;
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'LandingPage',
+  data() {
+    return {
+      query: '',
+      topics: [
+        'Frontend Development', 
+        'Backend Development', 
+        'Full Stack Development', 
+        'React', 
+        'Python', 
+        'JavaScript', 
+        'TypeScript', 
+        'Java',
+        'HTML',
+        'CSS'
+      ],
+      features: [
+        { title: 'Personalized Roadmaps:', description: 'Customize your journey to your technology stack of choice.' },
+        { title: 'Progress Tracker:', description: 'Visualize your learning progress and milestones.' },
+        { title: 'Learning Materials:', description: 'Access descriptions, samples, and definitions for each subtopic.' },
+        { title: 'External Resources:', description: 'Direct links to tutorials and documentation.' }
+      ],
+      steps: [
+        { title: "Choose a language or topic.", description: "Select a language or topic that aligns with your career goals or personal interests, and we’ll build a learning path around it." },
+        { title: "Get a roadmap.", description: "RoadmapAI generates a tailored roadmap organized into main topics and essential subtopics." },
+        { title: "Track Your Progress.", description: "Mark each completed topic to see your advancement on the roadmap, showing your learning progress." },
+        { title: "Explore Additional Resources", description: "Every topic consists of links to external resources—tutorials, articles, and documentation." }
+      ]
+    };
+  },
+  methods: {
+    search() {
+      if (this.query) {
+        alert(`Searching for: ${this.query}`);
       }
+    },
+    setQuery(topic) {
+      this.query = topic;
     }
-  };
-  </script>
-  
-  <style scoped>
-  @import './LandingPage.css';  
-  </style>
-  
+  }
+};
+</script>
+
+<style scoped>
+@import './LandingPage.css';
+</style>
