@@ -65,35 +65,11 @@
 
         <div class="row rowSteps">
           
-          <div class="col step-cards">
-            <div class="number-icon">1</div>
-            <h3 class="step-title">Choose a topic.</h3>
+          <div class="col step-cards" v-for="(step, index) in steps" :key="index" >
+            <div class="number-icon">{{ step.icon }}</div>
+            <h3 class="step-title">{{ step.title}}</h3>
               <p class="step-description">
-                Select a language or topic that aligns with your career goals or personal interests.
-              </p>
-          </div>
-          
-          <div class="col step-cards">
-            <div class="number-icon">2</div>
-            <h3 class="step-title">Get a roadmap.</h3>
-              <p class="step-description">
-                RoadmapAI generates a tailored roadmap organized into main topics and essential subtopics.
-              </p>
-          </div>
-
-          <div class="col step-cards">
-            <div class="number-icon">3</div>
-            <h3 class="step-title">Track Your Progress.</h3>
-              <p class="step-description">
-                Mark each completed topic to see your advancement on the roadmap, showing your learning progress.
-              </p>
-          </div>
-
-          <div class="col step-cards">
-            <div class="number-icon">4</div>
-            <h3 class="step-title">Explore Resources</h3>
-              <p class="step-description">
-                Every topic consists of links to external resources—tutorials, articles, and documentation
+                {{ step.description}}
               </p>
           </div>
 
@@ -183,10 +159,10 @@ export default {
         { title: 'External Resources:', description: 'Direct links to tutorials and documentation.' }
       ],
       steps: [
-        { title: "Choose a language or topic.", description: "Select a language or topic that aligns with your career goals or personal interests, and we’ll build a learning path around it." },
-        { title: "Get a roadmap.", description: "RoadmapAI generates a tailored roadmap organized into main topics and essential subtopics." },
-        { title: "Track Your Progress.", description: "Mark each completed topic to see your advancement on the roadmap, showing your learning progress." },
-        { title: "Explore Additional Resources", description: "Every topic consists of links to external resources—tutorials, articles, and documentation." }
+        { icon: "1", title: "Choose a topic.", description: "Select a language or topic that aligns with your career goals or personal interests." },
+        { icon: "2", title: "Get a roadmap.", description: "RoadmapAI generates a tailored roadmap organized into main topics and essential subtopics." },
+        { icon: "3", title: "Track Your Progress.", description: "Mark each completed topic to see your advancement on the roadmap, showing your learning progress." },
+        { icon: "4", title: "Explore Resources", description: "Every topic consists of links to external resources—tutorials, articles, and documentation." }
       ]
     };
   },
