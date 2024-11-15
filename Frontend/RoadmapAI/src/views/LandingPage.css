@@ -394,7 +394,7 @@ img {
   background-color: #00bcd4;
   color: white;
   align-items: center;
-  padding: 60px 0px 60px 200px;
+  padding: 0px 0px 0px 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -442,7 +442,7 @@ img {
 
 .testimonial-card {
   position: absolute;
-  height: auto;
+  height: 60%;
   margin: auto;
   transition: transform .4s ease, opacity .4s ease, z-index .4s ease;
   text-decoration: none;
@@ -463,9 +463,10 @@ img {
 .carousel-control {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
   z-index: 4;
+
 }
 
 .carousel-control.prev {

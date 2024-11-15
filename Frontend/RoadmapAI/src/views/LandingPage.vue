@@ -69,13 +69,15 @@
 
       <!-- Fourth Row: Testimonials Carousel -->
       <div class="row rowtestimonials">
-        <div class="col-lg-4 testimonials">
+        <div class="col-lg-4 col-md-4 col-sm-12 testimonials">
           <h1 class="title mb-2">Testimonials</h1>
           <p class="subtitle mb-4">Why people love Roadmap AI</p>
+          <button @click="handlePrev" class="carousel-control prev"><img src="/src/assets/leftbtn.png"></button>
+          <button @click="handleNext" class="carousel-control next"><img src="/src/assets/rightbtn.png"></button>
         </div>
 
-        <div class="col-lg-8 testimonials-carousel">
-          <button @click="handlePrev" class="carousel-control prev">❮</button>
+        <div class="col-lg-8 col-md-4 col-sm-12 testimonials-carousel">
+          
           <div class="carousel-track">
             <div v-for="(testimonial, index) in testimonials" :key="index" class="testimonial-card container-fluid"
               :style="getTransformStyles(index)">
@@ -88,13 +90,10 @@
                 <div class="testimonial-desc">
                   <p>{{ testimonial.description }}</p>
                 </div>
-                  
-                
               </div>
-
             </div>
           </div>
-          <button @click="handleNext" class="carousel-control next">❯</button>
+          
         </div>
       </div>
 
@@ -166,6 +165,7 @@
 </template>
 
 <script>
+
 export default {
   name: "LandingPage",
   data() {
@@ -306,6 +306,13 @@ export default {
           transform: "translateX(0) scale(1)",
           opacity: 1,
           zIndex: 3,
+        };
+      } else if (index === previousIndex) {
+        return {
+          transform: "translateX(-107%) scale(1)",
+          opacity: 1,
+          zIndex: 2,
+          visibility: "hidden",
         };
       } else if (index === nextIndex) {
         return {
