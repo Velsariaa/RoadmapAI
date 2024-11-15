@@ -1,90 +1,479 @@
 * {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-.landing-page{
+.landing-page {
   min-height: 100vh;
-  background: linear-gradient( rgba(255,255,255,1) 73%, rgba(46,187,212,1) 100%);
+  
+}
+
+.roadmapImg{
+  transition: transform 0.3s ease;
+}
+
+.roadmapImg:hover{
+  transform: translateY(-5px);
+}
+
+
+
+.rowPrompt {
+  padding: 20px 150px 0px 200px;
+  background: linear-gradient( rgba(255,255,255,1) 65%, rgba(46,187,212,1) 100%);
   padding-bottom: 20px;
+  padding-left: 50px;
 }
+
+img {
+  border-radius: 10px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 80px;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.success {
+  color: #00bcd4;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 15px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.search-button {
+  background-color: #00bcd4;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggested-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.topic-button {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 8px 15px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.topic-button:hover {
+  background-color: #f0f0f0;
+}
+
+.rowFeatures {
+  background-color: #00bcd4;
+  color: white;
+  align-items: center;
+  padding: 60px 150px 60px 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.features-title .title {
+  font-size: 70px;
+  color: white;
+}
+
+.features-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  user-select: none;
+}
+
+
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  border: 2px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.feature-icon {
+  font-size: 30px;
+  color: #fff;
+  margin-right: 15px;
+  background: #00bcd4;
+  padding: 8px 20px 8px 20px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.feature-content{
+  margin-left: 10px;
+}
+
+.feature-content h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #00bcd4;
+  font-weight: 800;
+}
+
+.feature-content p {
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+.how-it-works-title h1{
+  font-size: 70px;
+}
+
+.rowProcess {
+  padding: 60px 150px 60px 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.process-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.step-box {
+  background: white;
+  border: 2px solid #00bcd4;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.step-box h3 {
+  font-size: 18px;
+  color: #00bcd4;
+  margin: 0;
+}
+
+.step-box p {
+  font-size: 14px;
+  color: #333;
+}
+
+.timeline-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: #00bcd4;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
   
-  /* You can also add custom styling for the image */
-  img {
-    border-radius: 10px;
+}
+
+.dotted-line {
+  width: 2px;
+  height: 60px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #00bcd4,
+    #00bcd4 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin-bottom: 20px;
+}
+
+.rowTimeline {
+  background-color: #f8fcff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.timeline-title {
+  font-size: 36px;
+  color: #00bcd4;
+  font-weight: bold;
+}
+
+.timeline-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+
+.process-title .title {
+  font-size: 70px;
+  color: #00bcd4;
+}
+
+.rowSteps {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adds spacing between the cards */
+  padding: 40px 0; /* Padding around the row */
+}
+
+.step-cards {
+  background-color: #ffffff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 280px; /* Reduces the width of each card */
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  vertical-align: top;
+  user-select: none;
+}
+
+.step-cards:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.topic-button:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.step-description {
+  color: #666;
+  font-size: 14px;
+}
+
+.number-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  line-height: 40px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 992px) {
+  .rowSteps {
+    flex-direction: column;
+    gap: 15px; /* Reduced gap for smaller screens */
   }
-
-.title{
-    font-weight: 800;
-    font-size: 90px;
-    line-height: 80px;
-    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
-}
-
-.success{
-    color: #00bcd4;
-}
-
-.subtitle{
-    font-size: 20px;
-}
-
-
-  .search-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    padding: 15px;
+  .step-cards {
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
-    margin-bottom: 25px;
   }
-  
-  .search-input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    padding: 5px;
-    font-size: 16px;
-    
-  }
-  
-  .search-button {
-    background-color: #00bcd4;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
-  }
-  
-  /* Optional: Add hover effect to the image */
-  .search-button:hover {
-    opacity: 0.8;
-  }
+}
 
-  .suggested-topics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-  }
+.testimonials .title {
+  font-size: 70px;
+  color: white;
+}
 
-  .topic-button {
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    padding: 8px 15px;
-    background-color: white;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  }
+.rowFAQs {
+  background-color: #fff;
+  color: #333;
+  padding: 40px 20px;
+  display: flex;
+  padding: 60px 150px 60px 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
 
-  .topic-button:hover {
-    background-color: #f0f0f0;
-  }
+.faqs .title {
+  font-size: 60px;
+  color: #333;
+}
+
+.accordion-faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.custom-accordion .accordion-button {
+  background-color: #00bcd4; /* Custom background color */
+  color: white; /* Custom text color */
+  font-weight: bold;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  background-color: #00bcd4; /* Darker shade when open */
+  transition: transform 0.3s ease;
+}
+
+.custom-accordion .accordion-item {
+  border: none; /* Remove default borders */
+  margin-bottom: 20px; /* Add spacing between items */
+}
+
+.custom-accordion .accordion-body {
+  background-color: #f8f9fa; /* Light background for the content */
+  padding: 20px; /* Add padding to accordion body */
+  border-radius: 5px;
+  color: #333; /* Custom text color for body */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.rowtestimonials{
+  background-color: #00bcd4;
+  color: white;
+  align-items: center;
+  padding: 60px 0px 60px 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-carousel {
+  height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.testimonial-icon {
+  width: 17%;
+  padding: 8px 8px 8px 8px;
+  border-radius: 50%;
+  border: 2px solid #00bcd4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.testimonial-name h5{
+  font-size: 2.5vh;
+  padding-top: 5%;
+  padding-left: 5%;
+  text-align: left;
+  font-weight: 700;
+}
+.testimonial-course{
+  text-align: left;
+  padding-left: 5%;
+  line-height: 5px;
+}
+.testimonial-desc{
+  padding-top: 3%;
+  text-align: justify;
+  font-size: 2.3vh;
+}
+
+.testimonial-card {
+  position: absolute;
+  height: auto;
+  margin: auto;
+  transition: transform .4s ease, opacity .4s ease, z-index .4s ease;
+  text-decoration: none;
+  color: black;
+  
+  background-color: #ffffff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 50%;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-control {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.carousel-control.prev {
+  left: 0;
+}
+
+.carousel-control.next {
+  right: 0;
+}
+
+
