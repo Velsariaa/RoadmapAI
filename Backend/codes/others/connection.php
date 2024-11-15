@@ -1,6 +1,6 @@
 <?php
 
-$dbname = "Roadmap";
+$dbname = "roadmap";
 $dbusername = "root";
 $dbpassword = "";
 $dbhost = "localhost";
