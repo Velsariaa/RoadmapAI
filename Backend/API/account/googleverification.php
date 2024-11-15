@@ -36,6 +36,9 @@ try {
     $mail->Body    = 'Your OTP Password is <b>N1664</b>';
 
     $mail->send();
+
+    
+
     echo 'Message has been sent';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

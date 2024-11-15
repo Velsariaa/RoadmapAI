@@ -63,6 +63,11 @@ export default {
           password: this.password
         });
         console.log('Response:', response.data);
+        if(response.data.status == "success") {
+            this.$router.push('/dashboard');
+        } else {
+            console.log("BURAT");
+        }
       } catch (error) {
         console.error('There was an error!', error);
       }
