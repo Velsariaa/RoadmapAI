@@ -28,7 +28,21 @@ img {
   border-radius: 10px;
 }
 
+
+.maintitle {
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 80px;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 .title {
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 80px;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+.featurestitle{
   font-weight: 800;
   font-size: 90px;
   line-height: 80px;
@@ -48,6 +62,12 @@ img {
   line-height: 80px;
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
+.faqstitle {
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 90px;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
 
 .testimonial-subtitle {
   font-size: 20px;
@@ -56,12 +76,21 @@ img {
 .success {
   color: #00bcd4;
 }
+.mainsubtitle {
+  font-size: 20px;
+}
 
 .subtitle {
   font-size: 20px;
 }
+.featuressubtitle{
+  font-size: 20px;
+}
 .process-subtitle{
-
+  font-size: 20px;
+}
+.faqssubtitle{
+  font-size: 20px; 
 }
 
 
@@ -77,19 +106,21 @@ img {
 }
 
 .search-input {
-  border: none;
+  border: 1px solid #00bcd4;
   outline: none;
   flex-grow: 1;
-  padding: 5px;
+  padding: 15px;
   font-size: 16px;
+  border-radius: 10px;
 }
 
 .search-button {
   background-color: #00bcd4;
   border: none;
+  font-size: 22px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  padding: 10px;
+  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +137,7 @@ img {
 }
 
 .topic-button {
-  border: 1px solid #ccc;
+  border: 1px solid #00bcd4;
   border-radius: 25px;
   padding: 8px 15px;
   background-color: white;
@@ -114,10 +145,13 @@ img {
   transition: background-color 0.2s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  color: #000;
 }
 
 .topic-button:hover {
   background-color: #f0f0f0;
+  color: #00bcd4;
+  border: 1px solid #00bcd4;
 }
 
 .rowFeatures {
@@ -152,11 +186,8 @@ img {
 }
 
 .feature-icon {
-  font-size: 30px;
-  color: #fff;
-  background: #00bcd4;
-  margin: 3%;
-  padding: 10%;
+ width: 60px;
+ height: 60px;
   border-radius: 50%;
   border: 2px solid #333;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -184,6 +215,13 @@ img {
 }
 
 .rowProcess {
+  padding: 60px 150px 60px 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rowFAQ {
   padding: 60px 150px 60px 200px;
   display: flex;
   justify-content: center;
@@ -283,9 +321,7 @@ img {
   justify-content: space-between;
   gap: 20px;
   align-items: center;
-  /* Adds spacing between the cards */
-  padding: 40px 0;
-  /* Padding around the row */
+  padding-top: 20px;
 }
 
 .step-cards {
@@ -348,14 +384,94 @@ img {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 992px) {
+
+  .rowPrompt {
+    padding: 10px 10px;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 1) 65%, rgba(46, 187, 212, 1) 100%);
+    padding-bottom: 20px;
+    padding-left: 50px;
+  }
+  .rowFAQs {
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    padding: 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
   .rowSteps {
     flex-direction: column;
     gap: 15px;
-    /* Reduced gap for smaller screens */
+    padding-top: 10px;
   }
 
   .step-cards {
     width: 100%;
+  }
+
+  .roadmapImg{
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: auto;
+  }
+  .maintitle {
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .mainsubtitle {
+    font-size: 16px;
+    text-align: center;
+  }
+  .featurestitle{
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .featuressubtitle{
+    font-size: 16px;
+    text-align: center;
+  }
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+     border-radius: 50%;
+     border: 2px solid #333;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+   }
+   .process-title {
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+  }
+  .rowProcess{
+    padding: 20px 10px;
+  }
+  .rowFAQ{
+    padding: 20px 10px;
+  }
+  .process-subtitle{
+    font-size: 16px;
+    text-align: center;
+  }
+  .faqstitle {
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .faqssubtitle{
+    font-size: 16px;
+    text-align: center; 
+    margin-top: 20px;
   }
 }
 
@@ -367,16 +483,11 @@ img {
 .rowFAQs {
   background-color: #fff;
   color: #333;
-
   display: flex;
   padding: 60px 150px 60px 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.faqs .title {
-  font-size: 60px;
-  color: #333;
-}
 
 .accordion-faqs {
   display: flex;
@@ -515,9 +626,7 @@ img {
 
 
 @media screen and (max-width: 768px) {
-  .feature-icon {
-    font-size: 10px;
-  }
+  
 
   .features-title .title {
     font-size: 50px;
@@ -535,11 +644,7 @@ img {
 }
 
 @media screen and (max-width: 480px) {
-  .feature-icon {
-    font-size: 15px;
-    padding: 15px 17px 15px 17px;
-    margin: 3%;
-  }
+  
 
   .features-title .title {
     font-size: 40px;
@@ -590,15 +695,10 @@ img {
   .testimonials-carousel{
     height: 40vh;
   }
-  .process-title{
-    font-size: 40px;
-  }
   .process-subtitle{
     font-size: 16px;
     
   }
-  .rowProcess{
-    padding: 15px 17px 15px 17px;
-  }
+
 
 }

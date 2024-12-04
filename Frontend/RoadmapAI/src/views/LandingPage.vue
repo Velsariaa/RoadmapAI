@@ -1,40 +1,55 @@
 <template>
   <div class="landing-page">
     <b-container fluid>
-      <!-- First Row: Prompt Section -->
-      <b-row align-v="center" class="rowPrompt">
-        <b-col lg="5" class="d-flex justify-content-center align-items-center">
-          <b-img src="/src/assets/roadmap.png" alt="Roadmap" fluid class="roadmapImg"></b-img>
-        </b-col>
+      
+        <b-row align-v="center rowPrompt">
+          <!-- Image Column -->
+          <b-col lg="5" sm="12" class="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+            <b-img src="/src/assets/roadmap.png" alt="Roadmap" class="roadmapImg"></b-img>
+          </b-col>
 
-        <b-col lg="7">
-          <h1 class="title mb-4">Build Your<br>Path to <span class="success">Success</span></h1>
-          <p class="subtitle mb-4">
-            Generate a personalized roadmap of your desired software engineering / information technology topics.
-          </p>
-          <b-input-group>
-            <b-form-input v-model="query" placeholder="What do you want to learn today? (e.g., Python, React, Java)"
-              @keyup.enter="search" />
-            <b-input-group-append>
-              <b-button @click="search" variant="primary">✓</b-button>
-            </b-input-group-append>
-          </b-input-group>
+          <!-- Text Content Column -->
+          <b-col lg="7" sm="12">
+            <h1 class="maintitle mb-4 mt-4">
+              Build Your Path to <span class="success">Success</span>
+            </h1>
+            <p class="mainsubtitle mb-4">
+              Generate a personalized roadmap of your desired software engineering / information technology topics.
+            </p>
+            <b-input-group>
+              <b-form-input 
+                v-model="query"
+                placeholder="What do you want to learn today? (e.g., Python, React, Java)"
+                @keyup.enter="search"
+                class="search-input"
+              />
+              <b-input-group-append>
+                <b-button @click="search" class="search-button">✓</b-button>
+              </b-input-group-append>
+            </b-input-group>
 
-          <b-button-group class="mt-3">
-            <b-button v-for="topic in topics" :key="topic" @click="setQuery(topic)" variant="outline-primary"
-              class="topic-button">
-              {{ topic }}
-            </b-button>
-          </b-button-group>
-        </b-col>
-      </b-row>
+            <b-button-group class="mt-3 flex-wrap suggested-topics">
+              <b-button
+                v-for="topic in topics"
+                :key="topic"
+                @click="setQuery(topic)"
+                variant="outline-primary"
+                class="topic-button mb-1"
+              >
+                {{ topic }}
+              </b-button>
+            </b-button-group>
+          </b-col>
+        </b-row>
+     
+
 
       <!-- Second Row: Features Section -->
       <b-row class="rowFeatures">
         <!-- Features Title Section -->
         <b-col lg="6" md="12" sm="12" class="features-title">
-          <h1 class="title mb-2">Our Features</h1>
-          <p class="subtitle mb-4">How Roadmap AI Helps You</p>
+          <h1 class="featurestitle mb-2">Our Features</h1>
+          <p class="featuressubtitle mb-4">How Roadmap AI Helps You</p>
         </b-col>
 
         <!-- Features Cards Section -->
@@ -42,7 +57,9 @@
           <b-card v-for="(feature, index) in features" :key="index" class="feature-card">
             <b-row>
               <b-col lg="2" md="2" sm="2" cols="2">
-                <div class="feature-icon d-flex justify-content-center">✓</div>
+                <div class="feature-icon d-flex justify-content-center mt-2">
+                  <img src="../assets/checkButton.png">
+                </div>
               </b-col>
 
               <b-col lg="10" md="10" sm="10" cols="10">
@@ -53,18 +70,16 @@
               </b-col>
 
             </b-row>
-
-
           </b-card>
         </b-col>
       </b-row>
 
 
       <!-- Third Row: How It Works Section -->
-      <b-row class="rowProcess">
-        <b-col lg="12" class="text-center process-title">
+      <b-row class="rowProcess mt-3">
+        <b-col lg="12" class="text-center">
           <h1 class="process-title mb-2">See how it works</h1>
-          <p class="process-subtitle mb-4">Explore the steps and process</p>
+          <p class="process-subtitle mt-2 ">Explore the steps and process</p>
         </b-col>
 
         <b-row class="rowSteps">
@@ -112,13 +127,13 @@
       </b-row>
 
       <!-- Fifth Row: FAQs -->
-      <b-row class="rowFAQs">
-        <b-col lg="6" class="faqs">
-          <h1 class="title mb-2">Frequently Asked Questions</h1>
-          <p class="subtitle mb-4">Ready to create your own learning roadmap?</p>
+      <b-row class="rowFAQ">
+        <b-col lg="6" sm="12" class="faqs">
+          <h1 class="faqstitle mb-2">Frequently Asked Questions</h1>
+          <p class="faqssubtitle mb-4">Ready to create your own learning roadmap?</p>
         </b-col>
 
-        <b-col lg="6" class="accordion-faqs">
+        <b-col lg="6" sm="12" class="accordion-faqs">
           <b-accordion flush>
             <b-accordion-item id="faq1" title="What topics and languages are available on RoadmapAI?">
               RoadmapAI covers a variety of programming languages, frameworks, and software engineering topics,
@@ -152,6 +167,7 @@ export default {
         "Backend Development",
         "Full Stack Development",
         "React",
+        "React Native",
         "Python",
         "JavaScript",
         "TypeScript",
