@@ -35,6 +35,13 @@ img {
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
+.process-title {
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 80px;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 .testimonial-title {
   font-weight: 800;
   font-size: 90px;
@@ -52,6 +59,9 @@ img {
 
 .subtitle {
   font-size: 20px;
+}
+.process-subtitle{
+
 }
 
 
@@ -265,12 +275,14 @@ img {
 .process-title .title {
   font-size: 70px;
   color: #00bcd4;
+  padding: 0;
 }
 
 .rowSteps {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  align-items: center;
   /* Adds spacing between the cards */
   padding: 40px 0;
   /* Padding around the row */
@@ -355,7 +367,7 @@ img {
 .rowFAQs {
   background-color: #fff;
   color: #333;
-  padding: 40px 20px;
+
   display: flex;
   padding: 60px 150px 60px 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -558,7 +570,7 @@ img {
   }
 
   .testimonial-card {
-    height: 55%;
+    height: 70%;
     margin-right: 7%;
     width: 80%;
   }
@@ -575,6 +587,18 @@ img {
   .testimonial-course{
     font-size: 1.5vh;
   }
-  
+  .testimonials-carousel{
+    height: 40vh;
+  }
+  .process-title{
+    font-size: 40px;
+  }
+  .process-subtitle{
+    font-size: 16px;
+    
+  }
+  .rowProcess{
+    padding: 15px 17px 15px 17px;
+  }
 
 }

@@ -63,12 +63,12 @@
       <!-- Third Row: How It Works Section -->
       <b-row class="rowProcess">
         <b-col lg="12" class="text-center process-title">
-          <h1 class="title mb-2">See how it works</h1>
-          <p class="subtitle mb-4">Explore the steps and process</p>
+          <h1 class="process-title mb-2">See how it works</h1>
+          <p class="process-subtitle mb-4">Explore the steps and process</p>
         </b-col>
 
         <b-row class="rowSteps">
-          <b-col lg="3" md="6" sm="12" v-for="(step, index) in steps" :key="index" class="step-cards">
+          <b-col lg="3" md="6" sm="6" cols="6" v-for="(step, index) in steps" :key="index" class="step-cards">
             
               <div class="number-icon">{{ step.icon }}</div>
               <h3 class="step-title">{{ step.title }}</h3>
