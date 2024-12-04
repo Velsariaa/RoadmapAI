@@ -1,166 +1,140 @@
 <template>
   <div class="landing-page">
-    <div class="container-fluid">
+    <b-container fluid>
       <!-- First Row: Prompt Section -->
-      <div class="row align-items-center rowPrompt">
-        <div class="col-lg-5 d-flex justify-content-center align-items-center">
-          <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid roadmapImg" />
-        </div>
+      <b-row align-v="center" class="rowPrompt">
+        <b-col lg="5" class="d-flex justify-content-center align-items-center">
+          <b-img src="/src/assets/roadmap.png" alt="Roadmap" fluid class="roadmapImg"></b-img>
+        </b-col>
 
-        <div class="col-lg-7">
+        <b-col lg="7">
           <h1 class="title mb-4">Build Your<br>Path to <span class="success">Success</span></h1>
-          <p class="subtitle mb-4">Generate a personalized roadmap of your desired software engineering / information
-            technology topics.</p>
-          <div class="search-container">
-            <input type="text" class="search-input" v-model="query"
-              placeholder="What do you want to learn today? (e.g., Python, React, Java)" @keyup.enter="search" />
-            <div class="search-button" @click="search">
-              ✓
-            </div>
-          </div>
+          <p class="subtitle mb-4">
+            Generate a personalized roadmap of your desired software engineering / information technology topics.
+          </p>
+          <b-input-group>
+            <b-form-input v-model="query" placeholder="What do you want to learn today? (e.g., Python, React, Java)"
+              @keyup.enter="search" />
+            <b-input-group-append>
+              <b-button @click="search" variant="primary">✓</b-button>
+            </b-input-group-append>
+          </b-input-group>
 
-          <div class="suggested-topics">
-            <div class="topic-button" v-for="topic in topics" :key="topic" @click="setQuery(topic)">
+          <b-button-group class="mt-3">
+            <b-button v-for="topic in topics" :key="topic" @click="setQuery(topic)" variant="outline-primary"
+              class="topic-button">
               {{ topic }}
-            </div>
-          </div>
-        </div>
-      </div>
+            </b-button>
+          </b-button-group>
+        </b-col>
+      </b-row>
 
       <!-- Second Row: Features Section -->
-      <div class="row rowFeatures">
-        <div class="col-lg-6 features-title">
+      <b-row class="rowFeatures">
+        <!-- Features Title Section -->
+        <b-col lg="6" md="12" sm="12" class="features-title">
           <h1 class="title mb-2">Our Features</h1>
           <p class="subtitle mb-4">How Roadmap AI Helps You</p>
-        </div>
+        </b-col>
 
-        <div class="col-lg-6 features-cards">
-          <div class="feature-card" v-for="(feature, index) in features" :key="index">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>{{ feature.title }}</h3>
-              <p>{{ feature.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <!-- Features Cards Section -->
+        <b-col lg="6" md="12" sm="12" class="features-cards">
+          <b-card v-for="(feature, index) in features" :key="index" class="feature-card">
+            <b-row>
+              <b-col lg="2" md="2" sm="2" cols="2">
+                <div class="feature-icon d-flex justify-content-center">✓</div>
+              </b-col>
+
+              <b-col lg="10" md="10" sm="10" cols="10">
+                <div class="feature-content">
+                  <h3>{{ feature.title }}</h3>
+                  <p>{{ feature.description }}</p>
+                </div>
+              </b-col>
+
+            </b-row>
+
+
+          </b-card>
+        </b-col>
+      </b-row>
+
 
       <!-- Third Row: How It Works Section -->
+      <b-row class="rowProcess">
+        <b-col lg="12" class="text-center process-title">
+          <h1 class="process-title mb-2">See how it works</h1>
+          <p class="process-subtitle mb-4">Explore the steps and process</p>
+        </b-col>
 
-      <div class="row rowProcess">
-
-        <div class="col-lg-12 text-center process-title">
-          <h1 class="title mb-2">See how it works</h1>
-          <p class="subtitle mb-4">Explore the steps and process</p>
-        </div>
-
-        <div class="row rowSteps">
-
-          <div class="col step-cards" v-for="(step, index) in steps" :key="index">
-            <div class="number-icon">{{ step.icon }}</div>
-            <h3 class="step-title">{{ step.title }}</h3>
-            <p class="step-description">
-              {{ step.description }}
-            </p>
-          </div>
-
-        </div>
-      </div>
+        <b-row class="rowSteps">
+          <b-col lg="3" md="6" sm="6" cols="6" v-for="(step, index) in steps" :key="index" class="step-cards">
+            
+              <div class="number-icon">{{ step.icon }}</div>
+              <h3 class="step-title">{{ step.title }}</h3>
+              <p class="step-description">
+                {{ step.description }}
+              </p>
+            
+          </b-col>
+        </b-row>
+      </b-row>
 
       <!-- Fourth Row: Testimonials Carousel -->
-      <div class="row rowtestimonials">
-        <div class="col-lg-4 col-md-4 col-sm-12 testimonials">
-          <h1 class="title mb-2">Testimonials</h1>
-          <p class="subtitle mb-4">Why people love Roadmap AI</p>
-          <button @click="handlePrev" class="carousel-control prev"><img src="/src/assets/leftbtn.png"></button>
-          <button @click="handleNext" class="carousel-control next"><img src="/src/assets/rightbtn.png"></button>
-        </div>
+      <b-row class="rowTestimonials">
+        <b-col lg="4" md="12" sm="12" class="testimonials">
+          <h1 class="testimonial-title mb-2">Testimonials</h1>
+          <p class="testimonial-subtitle mb-4">Why people love Roadmap AI</p>
+          <b-button @click="handlePrev" variant="link" class="carousel-control prev">
+            <b-img src="/src/assets/leftbtn.png" alt="Previous"></b-img>
+          </b-button>
+          <b-button @click="handleNext" variant="link" class="carousel-control next">
+            <b-img src="/src/assets/rightbtn.png" alt="Next"></b-img>
+          </b-button>
+        </b-col>
 
-        <div class="col-lg-8 col-md-4 col-sm-12 testimonials-carousel">
-          
+        <b-col lg="8" md="12" sm="12" class="testimonials-carousel">
           <div class="carousel-track">
-            <div v-for="(testimonial, index) in testimonials" :key="index" class="testimonial-card container-fluid"
-              :style="getTransformStyles(index)">
-              <div class="row card-elements">
-                <img :src="testimonial.icon" alt="User Icon" class="testimonial-icon col-lg-4" />
+            <b-card v-for="(testimonial, index) in testimonials" :key="index" :style="getTransformStyles(index)"
+              class="testimonial-card">
+              <b-row class="card-elements">
+                <b-img :src="testimonial.icon" alt="User Icon" fluid class="testimonial-icon col-lg-4"></b-img>
+
                 <div class="testimonial-name col-lg-8">
                   <h5>{{ testimonial.name }}</h5>
                   <p class="testimonial-course">{{ testimonial.course }}</p>
                 </div>
-                <div class="testimonial-desc">
-                  <p>{{ testimonial.description }}</p>
-                </div>
-              </div>
-            </div>
+                <p class="testimonial-desc">{{ testimonial.description }}</p>
+              </b-row>
+            </b-card>
           </div>
-          
-        </div>
-      </div>
+        </b-col>
+      </b-row>
 
-
-
-      <!-- Fifth Row: Frequently Asked Questions -->
-
-
-
-      <div class="row rowFAQs">
-        <div class="col-lg-6 faqs">
+      <!-- Fifth Row: FAQs -->
+      <b-row class="rowFAQs">
+        <b-col lg="6" class="faqs">
           <h1 class="title mb-2">Frequently Asked Questions</h1>
           <p class="subtitle mb-4">Ready to create your own learning roadmap?</p>
-        </div>
+        </b-col>
 
-        <div class="col-lg-6 accordion-faqs">
-          <div class="accordion accordion-flush custom-accordion" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                  What topics and languages are available on RoadmapAI?
-                </button>
-              </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
-                data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">RoadmapAI covers a variety of programming languages, frameworks, and
-                  software engineering topics, including but not limited to JavaScript, Python, Java, HTML/CSS, React,
-                  Vue, and databases like MySQL. Each topic is broken down into main topics with detailed subtopics,
-                  allowing users to dive into fundamental and advanced concepts in their chosen area of interest.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  How does RoadmapAI track my learning progress?
-                </button>
-              </h2>
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">RoadmapAI tracks progress by allowing users to mark topics and subtopics as
-                  completed as they go through each section. The app calculates and displays a percentage of the roadmap
-                  completed, making it easy for users to track how far they've come and what remains to be covered.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  What learning resources are available on RoadmapAI?
-                </button>
-              </h2>
-              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">For each topic, RoadmapAI provides detailed descriptions, definitions,
-                  sample code, and additional resources such as links to articles, tutorials, and videos. These
-                  resources are carefully curated to offer comprehensive support for learning each topic.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
+        <b-col lg="6" class="accordion-faqs">
+          <b-accordion flush>
+            <b-accordion-item id="faq1" title="What topics and languages are available on RoadmapAI?">
+              RoadmapAI covers a variety of programming languages, frameworks, and software engineering topics,
+              including but
+              not limited to JavaScript, Python, Java, HTML/CSS, React, Vue, and databases like MySQL.
+            </b-accordion-item>
+            <b-accordion-item id="faq2" title="How does RoadmapAI track my learning progress?">
+              RoadmapAI tracks progress by allowing users to mark topics and subtopics as completed.
+            </b-accordion-item>
+            <b-accordion-item id="faq3" title="What learning resources are available on RoadmapAI?">
+              For each topic, RoadmapAI provides detailed descriptions, definitions, and links to external resources.
+            </b-accordion-item>
+          </b-accordion>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
