@@ -3,80 +3,32 @@ header('Content-Type: application/json');
 
 // Replace with your Google API key
 $apiKey = 'AIzaSyBjHJSpWpUJTi5oXh3K2jyy2WNv6Ls-r2M';
-$user_input = "make me a roadmap for python by filling this form topic and example only. dont add anything just fill this with this kind of structure.:
-\"
 
-1.) 
-Maintopic:
+$search = "javascript";
 
-Subtopic:
+$user_input = "answer this strictly in Json format !!!, make me a roadmap about $search give me at least 5 main topic with 1 link each where they can learn it also 2 sub topics each... follow this sample format 
 
-Example:
 
-2.) 
-Maintopic:
 
-Subtopic:
+\"python\": {
 
-Example:
+    \"roadmap\": [
 
-3.) 
-Maintopic:
+      {
 
-Subtopic:
+        \"topic\": \"Python Basics\",
 
-Example:
+        \"link\": \"https://docs.python.org/3/tutorial/\",
 
-4.) 
-Maintopic:
+        \"subtopics\": [
 
-Subtopic:
+          \"Installation and Setup\",
 
-Example:
+          \"Introduction to Python Syntax\"
 
-5.) 
-Maintopic:
+        ]
 
-Subtopic:
-
-Example:
-
-6.) 
-Maintopic:
-
-Example:
-
-7.) 
-Maintopic:
-
-Subtopic:
-
-Example:
-
-8.) 
-Maintopic:
-
-Subtopic:
-
-Example:
-
-9.) 
-Maintopic:
-
-Subtopic:
-
-Example:
-
-10.) 
-Maintopic:
-
-Subtopic:
-
-Example:
-
-\"
-
-follow the structure";
+      },";
 
 // Set up the data to be sent as JSON
 $data = [
@@ -121,46 +73,21 @@ if (curl_errno($curl)) {
     $data = json_decode($response, true);
     $text = $data['candidates'][0]["content"]["parts"][0]['text'];
 
-    $new = [
-        'Topic' => $user_input,
-        'Answer' => $text,
-    ];
+    //echo $text;
 
-    //echo json_encode($new);
+    $cleaned_json = str_replace(["```json", "```"], "", $text);
 
-    // Step 1: Split by numbered entries (e.g., "1.)", "2.)")
-    $pattern = '/(\d+\.\))\s+/';
-    $parts = preg_split($pattern, $text, -1, PREG_SPLIT_NO_EMPTY);
+    $data2 = json_decode($cleaned_json, true);
+    print_r($data2);
 
-    // Step 2: Initialize an array to store structured data
-    $roadmap = [];
 
-    // Step 3: Loop through each part and extract Maintopic, Subtopic, and Example
-    foreach ($parts as $index => $part) {
-        $maintopic = $subtopic = $example = '';
-
-        // Match Maintopic, optional Subtopic, and Example
-        if (preg_match('/Maintopic:\s*\*\*(.*?)\*\*(?:\n\nSubtopic:\s*\*\*(.*?)\*\*)?\n\nExample:\s*(.*)/s', $part, $matches)) {
-            $maintopic = trim($matches[1]);
-            $subtopic = isset($matches[2]) ? trim($matches[2]) : null;
-            $example = trim($matches[3]);
-
-            // Clean up unnecessary spaces and newlines
-            $maintopic = preg_replace('/\s+/', ' ', $maintopic);
-            if ($subtopic) $subtopic = preg_replace('/\s+/', ' ', $subtopic);
-            $example = preg_replace('/\s+/', ' ', $example);
-
-            // Add each entry to the roadmap array
-            $roadmap["Topic " . ($index + 1)] = [
-                "Maintopic" => $maintopic,
-                "Subtopic" => $subtopic,
-                "Example" => $example,
-            ];
-        }
-    }
-
-    // Output the result as JSON
-    echo json_encode($roadmap, JSON_PRETTY_PRINT);
+    //SAMPLE CODE
+    // $firstKey = key($data2); // $data2[$firstKey]
+    // foreach ($data2[$firstKey]['roadmap'] as $key) {
+    //     foreach ($key as $key1 => $value1) {
+    //         echo $key1 . " = " . $value1;
+    //     }
+    // }
 
 
 }
