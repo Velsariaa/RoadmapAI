@@ -4,12 +4,12 @@
       <div class="row align-items-center pb-5">
           <!-- Column 1: Image -->
           <div class="col-lg-5">
-          <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid" />
+          <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid roadmapImg" />
           </div>
   
           <!-- Column 2: Title, Subtitle, and Prompt Bar -->
           <div class="col-lg-7">
-          <h1 class="title mb-4">Welcome Back!</h1>
+          <h1 class="title mb-2">Welcome Back!</h1>
           <p class="subtitle mb-4">Please enter your details.</p>
 
           <form @submit.prevent="submitData">
@@ -27,7 +27,7 @@
             <!-- Password -->
             <div class="search-container">
                 <input 
-                type="text" 
+                type="password" 
                 class="search-input" 
                 v-model="password" 
                 placeholder="  Password"
@@ -100,4 +100,5 @@ html, body, .landing-page {
 .loginBtn:hover{
   background: linear-gradient(90deg, #2EBBD4, #30D6F3); 
 }
+
 </style>

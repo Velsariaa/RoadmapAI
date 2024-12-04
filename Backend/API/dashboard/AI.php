@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 // Replace with your Google API key
 $apiKey = 'AIzaSyBjHJSpWpUJTi5oXh3K2jyy2WNv6Ls-r2M';
 
-$search = "FrontendDevelopment";
+$search = "javascript";
 
 $user_input = "answer this strictly in Json format !!!, make me a roadmap about $search give me exactly 10 main topic with 1 link each where they can learn it also 2 sub topics each... follow this sample format 
 
