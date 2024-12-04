@@ -96,8 +96,8 @@
       </b-row>
 
       <!-- Fourth Row: Testimonials Carousel -->
-      <b-row class="rowTestimonials">
-        <b-col lg="4" md="12" sm="12" class="testimonials">
+      <b-row class="row-Testimonials">
+        <b-col lg="4" sm="12" class="testimonials">
           <h1 class="testimonial-title mb-2">Testimonials</h1>
           <p class="testimonial-subtitle mb-4">Why people love Roadmap AI</p>
           <b-button @click="handlePrev" variant="link" class="carousel-control prev">

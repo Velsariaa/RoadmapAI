@@ -97,21 +97,26 @@ img {
 .search-container {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 50px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
   padding: 15px;
   width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
   margin-bottom: 25px;
+  background: transparent;
 }
 
 .search-input {
-  border: 1px solid #00bcd4;
+  border: none;
   outline: none;
   flex-grow: 1;
-  padding: 15px;
+  padding: 5px;
   font-size: 16px;
-  border-radius: 10px;
+  background: transparent;
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
 }
 
 .search-button {
@@ -464,7 +469,7 @@ img {
   .faqstitle {
     font-weight: 800;
     font-size: 50px;
-    line-height: 50px;
+    line-height: 60px;
     text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
     text-align: center;
   }
@@ -473,12 +478,25 @@ img {
     text-align: center; 
     margin-top: 20px;
   }
+
+  .testimonial-title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20px
+  }
+  
+  .testimonial-subtitle {
+    font-size: 16px;
+    text-align: center;
+  }
+  .row-Testimonials {
+    padding-left: 20px;
+  }
+  .testimonials{
+    padding: 0px;
+  }
 }
 
-.testimonials .title {
-  font-size: 70px;
-  color: white;
-}
 
 .rowFAQs {
   background-color: #fff;
@@ -534,11 +552,11 @@ img {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.rowTestimonials {
+.row-Testimonials {
   background-color: #00bcd4;
   color: white;
   align-items: center;
-  padding-left: 10%;
+  padding-left: 190px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -662,13 +680,7 @@ img {
     padding: 0%;
   }
 
-  .testimonial-title {
-    font-size: 40px;
-  }
-
-  .testimonial-subtitle {
-    font-size: 16px;
-  }
+  
 
   .subtitle {
     font-size: 16px;
