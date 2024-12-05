@@ -16,14 +16,14 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'bawalbuksan20@gmail.com';                     //SMTP username
-    $mail->Password   = 'ucvd nahc vkuj yvpw';                               //SMTP password
+    $mail->Username   = 'ue.roadmap.ai@gmail.com';                     //SMTP username
+    $mail->Password   = 'ayyn ezes xgfc zqty ';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;          //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('guiribajustin2004@gmail.com', 'RoadmapAI');
-    $mail->addAddress('justinguiriba20@gmail.com', 'Roadmap User');     //Add a recipient
+    $mail->setFrom('ue.roadmap.ai@gmail.com', 'RoadmapAI');
+    $mail->addAddress('guiribajustin2004@gmail.com', 'Roadmap User');     //Add a recipient
     //$mail->addReplyTo('guiribajustin2004@gmail.com', 'RoadmapAI');
 
     // //Attachments
