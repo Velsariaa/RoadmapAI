@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row align-items-center pb-5">
                 <!-- Column 1: Image -->
-                <div class="col-lg-5">
-                    <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid" />
+                <div class="col-lg-5 mt-4">
+                    <img src="/src/assets/roadmap.png" alt="Roadmap" class="img-fluid roadmapImg" />
                 </div>
 
                 <!-- Column 2: Title, Subtitle, and Prompt Bar -->

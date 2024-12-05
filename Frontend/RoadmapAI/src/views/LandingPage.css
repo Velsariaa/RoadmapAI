@@ -481,8 +481,9 @@ img {
 
   .testimonial-title {
     font-size: 50px;
+    line-height: 50px;
     text-align: center;
-    margin-top: 20px
+    margin-top: 40px
   }
   
   .testimonial-subtitle {
@@ -493,14 +494,10 @@ img {
   .testimonials{
     padding: 0px;
   }
+
+  
 }
 
-  @media (max-width: 576px) {
-    .testimonial-title {
-      font-size: 1.5rem; 
-      line-height: 1.2; 
-    }
-  }
 
 .rowFAQs {
   background-color: #fff;

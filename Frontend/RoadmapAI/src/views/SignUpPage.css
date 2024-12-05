@@ -3,6 +3,16 @@ html, body, #app, .landing-page {
     height: 100%;
     margin: 0;
   }
+
+  img.roadmapImg {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   .landing-page {
     min-height: 100vh;
@@ -70,8 +80,8 @@ html, body, #app, .landing-page {
     flex-grow: 1;
     padding: 5px;
     font-size: 16px;
+    background: transparent;
   }
-  
   .search-button {
     background-color: #00bcd4;
     border: none;
@@ -132,3 +142,65 @@ html, body, #app, .landing-page {
   }
 
   
+@media (max-width: 992px) {
+  .title {
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px
+  }
+
+  .subtitle {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  img.roadmapImg {
+    max-width: 300px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .loginBtn {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+ 
+
+
+  img.roadmapImg {
+    max-width: 250px;
+  }
+
+  .search-container {
+    padding: 10px;
+  }
+
+  .loginBtn {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+ 
+
+  img.roadmapImg {
+    max-width: 200px;
+  }
+
+  .search-container {
+    padding: 8px;
+  }
+
+  .loginBtn {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

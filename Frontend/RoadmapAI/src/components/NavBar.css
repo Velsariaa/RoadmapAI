@@ -9,7 +9,7 @@ nav{
 
 .navbar-brand{
     font-weight: bold;
-    color: #126878;
+    color: #2EBBD4;
 }
 
 .loginBtn{
@@ -44,4 +44,14 @@ nav{
 
 .signUpBtn:hover{
     background: linear-gradient(90deg, #126878, #1A97AE); 
+}
+
+ 
+@media (max-width: 992px) {
+    .loginBtn{
+        margin-top: 10px;
+    }
+    .signUpBtn{
+        margin-top: 10px;
+    }
 }
