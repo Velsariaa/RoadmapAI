@@ -31,11 +31,11 @@
 
                         <!-- Confirm Password -->
                         <div class="search-container">
-                            <input type="text" class="search-input" v-model="confirmpassword"
+                            <input type="text" class="search-input" v-model="conf_pass"
                                 placeholder="  Confirm Password" />
                         </div>
 
-                        <!-- Verification Code -->
+                        Verification Code
                         <div class="verification-container">
                             <label class="checkbox-label">
                                 <input type="checkbox" v-model="isChecked" class="checkbox-custom" />
@@ -65,7 +65,7 @@ export default {
             email: '',
             password: '',
             confirmpassword: '',
-            verificationCode: ''
+            //verificationCode: ''
         };
     },
     methods: {
@@ -78,8 +78,8 @@ export default {
                     username: this.username,
                     email: this.email,
                     password: this.password,
-                    confirmpassword: this.confirmpassword,
-                    verificationCode: this.verificationCode
+                    conf_pass: this.conf_pass
+                    //verificationCode: this.verificationCode
                 });
                 console.log('Response:', response.data);
             } catch (error) {
