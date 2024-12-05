@@ -58,7 +58,7 @@ img {
 
 .testimonial-title {
   font-weight: 800;
-  font-size: 90px;
+  font-size: 500%;
   line-height: 80px;
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
@@ -489,14 +489,18 @@ img {
     font-size: 16px;
     text-align: center;
   }
-  .row-Testimonials {
-    padding-left: 20px;
-  }
+
   .testimonials{
     padding: 0px;
   }
 }
 
+  @media (max-width: 576px) {
+    .testimonial-title {
+      font-size: 1.5rem; 
+      line-height: 1.2; 
+    }
+  }
 
 .rowFAQs {
   background-color: #fff;
@@ -560,6 +564,12 @@ img {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 576px) {
+  .row-Testimonials {
+    padding-left: 10px; /* Adjusted padding for small screens */
+  }
+}
+
 .testimonial-name h5 {
   font-size: 2.5vh;
   padding-top: 5%;
@@ -588,6 +598,7 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding-right: 60px;
 }
 
 .testimonial-icon {

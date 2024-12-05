@@ -1,47 +1,38 @@
 <template>
   <div class="landing-page">
     <b-container fluid>
-      
-        <b-row align-v="center rowPrompt">
-          <!-- Image Column -->
-          <b-col lg="5" sm="12" class="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-            <b-img src="/src/assets/roadmap.png" alt="Roadmap" class="roadmapImg"></b-img>
-          </b-col>
 
-          <!-- Text Content Column -->
-          <b-col lg="7" sm="12">
-            <h1 class="maintitle mb-4 mt-4">
-              Build Your Path to <span class="success">Success</span>
-            </h1>
-            <p class="mainsubtitle mb-4">
-              Generate a personalized roadmap of your desired software engineering / information technology topics.
-            </p>
-            <b-input-group>
-              <b-form-input 
-                v-model="query"
-                placeholder="What do you want to learn today? (e.g., Python, React, Java)"
-                @keyup.enter="search"
-                class="search-input"
-              />
-              <b-input-group-append>
-                <b-button @click="search" class="search-button">✓</b-button>
-              </b-input-group-append>
-            </b-input-group>
+      <b-row align-v="center rowPrompt">
+        <!-- Image Column -->
+        <b-col lg="5" sm="12" class="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+          <b-img src="/src/assets/roadmap.png" alt="Roadmap" class="roadmapImg"></b-img>
+        </b-col>
 
-            <b-button-group class="mt-3 flex-wrap suggested-topics">
-              <b-button
-                v-for="topic in topics"
-                :key="topic"
-                @click="setQuery(topic)"
-                variant="outline-primary"
-                class="topic-button mb-1"
-              >
-                {{ topic }}
-              </b-button>
-            </b-button-group>
-          </b-col>
-        </b-row>
-     
+        <!-- Text Content Column -->
+        <b-col lg="7" sm="12">
+          <h1 class="maintitle mb-4 mt-4">
+            Build Your Path to <span class="success">Success</span>
+          </h1>
+          <p class="mainsubtitle mb-4">
+            Generate a personalized roadmap of your desired software engineering / information technology topics.
+          </p>
+          <b-input-group>
+            <b-form-input v-model="query" placeholder="What do you want to learn today? (e.g., Python, React, Java)"
+              @keyup.enter="search" class="search-input" />
+            <b-input-group-append>
+              <b-button @click="search" class="search-button">✓</b-button>
+            </b-input-group-append>
+          </b-input-group>
+
+          <b-button-group class="mt-3 flex-wrap suggested-topics">
+            <b-button v-for="topic in topics" :key="topic" @click="setQuery(topic)" variant="outline-primary"
+              class="topic-button mb-1">
+              {{ topic }}
+            </b-button>
+          </b-button-group>
+        </b-col>
+      </b-row>
+
 
 
       <!-- Second Row: Features Section -->
@@ -84,21 +75,21 @@
 
         <b-row class="rowSteps">
           <b-col lg="3" md="6" sm="6" cols="6" v-for="(step, index) in steps" :key="index" class="step-cards">
-            
-              <div class="number-icon">{{ step.icon }}</div>
-              <h3 class="step-title">{{ step.title }}</h3>
-              <p class="step-description">
-                {{ step.description }}
-              </p>
-            
+
+            <div class="number-icon">{{ step.icon }}</div>
+            <h3 class="step-title">{{ step.title }}</h3>
+            <p class="step-description">
+              {{ step.description }}
+            </p>
+
           </b-col>
         </b-row>
       </b-row>
 
       <!-- Fourth Row: Testimonials Carousel -->
       <b-row class="row-Testimonials">
-        <b-col lg="4" sm="12" class="testimonials">
-          <h1 class="testimonial-title mb-2">Testimonials</h1>
+        <b-col lg="4" sm="12" class="testimonials text-center">
+          <h1 class="testimonial-title mb-2 text-wrap w-100">Testimonials</h1>
           <p class="testimonial-subtitle mb-4">Why people love Roadmap AI</p>
           <b-button @click="handlePrev" variant="link" class="carousel-control prev">
             <b-img src="/src/assets/leftbtn.png" alt="Previous"></b-img>
