@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the JSON data from the request body
     $data = json_decode(file_get_contents("php://input"));
 
-    if (isset($data->prompt) && isset($data->userID)) {
+    if (isset($data->prompt) && isset($_SESSION["USER_ID"])){// && isset($data->userID)) {
         $search = $data->prompt;
-        $userID = $data->userID;
+        //$userID = $data->userID;
 
         
         // Replace with your Google API key
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             print_r($data2);
 
             $firstKey = key($data2);
-
+            $userID = $_SESSION["USER_ID"]; 
             $rand_id = random_int(10000000000, 99999999999);
             $R_ID = $rand_id;
             //$U_ID = 11111111114;

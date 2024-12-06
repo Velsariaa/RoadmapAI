@@ -74,6 +74,8 @@ export default {
         },
         async submitData() {
             try {
+                axios.defaults.withCredentials = true;
+
                 const response = await axios.post('http://localhost/register', {
                     username: this.username,
                     email: this.email,
