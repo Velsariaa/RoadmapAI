@@ -50,8 +50,8 @@ import axios from 'axios';
 export default {
   data() {
       return {
-        
-          roadmaps: [] 
+        RoadmapID: "",
+        roadmaps: [] 
       };
   },
 
@@ -59,6 +59,23 @@ export default {
     await this.fetchSessionData();
   },
   methods: {
+    async sendData() {
+      try {
+        axios.defaults.withCredentials = true;
+
+        const response = await axios.post('http://localhost/Fuckyou2', {
+          RoadmapID: this.RoadmapID,
+        });
+        console.log('Response:', response.data);
+        if(response.data.status == "success") {
+            this.$router.push('/roadmap');
+        } else {
+            console.log("BURAT");
+        }
+      } catch (error) {
+        console.error('There was an error!', error);
+      }
+    },
     
     async fetchSessionData() {
         try {

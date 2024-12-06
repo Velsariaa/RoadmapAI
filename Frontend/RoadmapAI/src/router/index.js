@@ -4,6 +4,7 @@ import Home from '../views/LandingPage.vue';
 import Dashboard from '../views/DashboardPage.vue';
 import Login from '../views/LoginPage.vue';
 import SignUp from '../views/SignUpPage.vue';
+import Roadmap from '../views/RoadmapPage.vue';
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     name: 'Sign Up',
     component: SignUp,
   },
+  {
+    path: '/roadmap',
+    name: 'Roadmap',
+    component: Roadmap,
+  }
 ];
 
 const router = createRouter({
