@@ -17,7 +17,7 @@
             Generate a personalized roadmap of your desired software engineering / information technology topics.
           </p>
           <b-input-group>
-            <b-form-input v-model="query" placeholder="What do you want to learn today? (e.g., Python, React, Java)"
+            <b-form-input v-model="prompt" placeholder="What do you want to learn today? (e.g., Python, React, Java)"
               @keyup.enter="search" class="search-input" />
             <b-input-group-append>
               <b-button @click="search" class="search-button">✓</b-button>
@@ -145,12 +145,13 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 export default {
   name: "LandingPage",
   data() {
     return {
-      query: "",
+      prompt: "",
+      userID: 12345678910,
       activeIndex: 0,
       isTransitioning: false,
       topics: [
@@ -243,11 +244,23 @@ export default {
     };
   },
   methods: {
-    search() {
-      if (this.query) {
-        alert(`Searching for: ${this.query}`);
+    async search() {
+      try {
+        const response = await axios.post('http://localhost/AI', {
+          prompt: this.prompt,
+          userID: this.userID
+        });
+        console.log('Response:', response.data);
+        if(response.data.status == "success") {
+           // this.$router.push('/dashboard');
+        } else {
+            console.log("BURAT");
+        }
+      } catch (error) {
+        console.error('There was an error!', error);
       }
     },
+    
     setQuery(topic) {
       this.query = topic;
     },
