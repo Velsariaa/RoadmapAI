@@ -26,12 +26,12 @@
 
                         <!-- Password -->
                         <div class="search-container">
-                            <input type="text" class="search-input" v-model="password" placeholder="  Password" />
+                            <input type="password" class="search-input" v-model="password" placeholder="  Password" />
                         </div>
 
                         <!-- Confirm Password -->
                         <div class="search-container">
-                            <input type="text" class="search-input" v-model="conf_pass"
+                            <input type="password" class="search-input" v-model="conf_pass"
                                 placeholder="  Confirm Password" />
                         </div>
 

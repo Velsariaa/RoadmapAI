@@ -20,7 +20,7 @@
                 type="text" 
                 class="search-input" 
                 v-model="username" 
-                placeholder="  Email"
+                placeholder="  Username"
                 />
             </div>
 

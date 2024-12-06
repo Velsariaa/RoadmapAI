@@ -5,7 +5,7 @@ require("codes/others/connection.php");
 // Replace with your Google API key
 $apiKey = 'AIzaSyBjHJSpWpUJTi5oXh3K2jyy2WNv6Ls-r2M';
 
-$search = "rizal";
+$search = "Python Flask";
 
 $user_input = "answer this strictly in Json format !!!, make me a roadmap about $search give me exactly 10 main topic with 1 link each where they can learn it also 2 sub topics each... follow this sample format 
 

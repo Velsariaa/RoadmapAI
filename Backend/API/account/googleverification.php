@@ -23,7 +23,7 @@ try {
 
     //Recipients
     $mail->setFrom('ue.roadmap.ai@gmail.com', 'RoadmapAI');
-    $mail->addAddress('guiribajustin2004@gmail.com', 'Roadmap User');     //Add a recipient
+    $mail->addAddress('renzoisaac912@gmail.com', 'Roadmap User');     //Add a recipient
     //$mail->addReplyTo('guiribajustin2004@gmail.com', 'RoadmapAI');
 
     // //Attachments
