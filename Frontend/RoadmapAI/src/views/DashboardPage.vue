@@ -18,8 +18,8 @@
             </div>
             
             <div v-else class="content2 col-lg-12">
-              <button @click="createRoadmap" class="card-btn" style="border: none; padding: 0; background: none;">
-                    <div class="card" style="width: 18rem; cursor: pointer;">
+              <button @click="createRoadmap" class="card-btn" style="border: none; padding: 0; background: none; margin-bottom: 20px; ">
+                    <div class="card" style="width: 410px; cursor: pointer; ">
                         <div class="card-body">
                             <img src="/src/assets/plus.png" alt="Roadmap" class="img-fluid" />
                             <h5 class="card-title"> <b> Create Roadmap </b> </h5>
@@ -29,8 +29,9 @@
               <!-- Render Roadmap Cards -->
               <div class="row">
                 <div v-for="roadmap in roadmaps" :key="roadmap.id" class="col-md-4" style="margin-top: 1rem;">
-                  <div class="card" style="width: 100%; height: 220px; cursor: pointer;">
+                  <div class="card" @click="sendData" style="width: 100%; height: 220px; cursor: pointer;">
                     <div class="card-body">
+                      <i class="fa-solid fa-diagram-project" style="color: #00bcd4; font-size: 44px;"></i>
                       <h5 class="card-title">{{ roadmap.mainTopic }}</h5>
                       <p class="card-text">Roadmap ID: {{ roadmap.id }}</p>
                     </div>

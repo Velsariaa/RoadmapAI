@@ -79,7 +79,7 @@
   </script>
   
   <style scoped>
-  @import './LoginPage.css';  
+  @import './RoadmapPage.css';  
   
   
   html, body, .landing-page {

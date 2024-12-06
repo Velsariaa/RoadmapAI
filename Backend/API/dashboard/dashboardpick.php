@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(isset($data->RoadmapID)) {
         $_SESSION["Roadmap-id-now"] = $data->RoadmapID;
+        echo json_encode(['status'=>'success']);
     }
 }
 

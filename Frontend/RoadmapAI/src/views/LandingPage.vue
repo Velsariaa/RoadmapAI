@@ -19,9 +19,15 @@
           <b-input-group>
             <b-form-input v-model="prompt" placeholder="What do you want to learn today? (e.g., Python, React, Java)"
               @keyup.enter="search" class="search-input" />
+            <!-- Search Button -->
             <b-input-group-append>
               <b-button @click="search" class="search-button">✓</b-button>
             </b-input-group-append>
+
+            <!-- Loading Modal -->
+            <div v-if="isLoading" class="loading-modal">
+              <div class="loader"></div>
+            </div>
           </b-input-group>
 
           <b-button-group class="mt-3 flex-wrap suggested-topics">
@@ -151,6 +157,7 @@ export default {
   name: "LandingPage",
   data() {
     return {
+      isLoading: false,
       prompt: "",
       userID: 12345678910,
       activeIndex: 0,
@@ -246,6 +253,7 @@ export default {
   },
   methods: {
     async search() {
+      this.isLoading = true;
       try {
         axios.defaults.withCredentials = true;
 
