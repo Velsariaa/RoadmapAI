@@ -79,15 +79,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         // Execute the request and capture the response
-        $response = curl_exec($curl);
+        $response = curl_exec($curl);echo json_encode(["status" => "error", "message" => "cURL AI Error"]);
 
         // Check for errors
         if (curl_errno($curl)) {
             echo "cURL Error: " . curl_error($curl);
+            
         } else {
             // Display the response
             $data = json_decode($response, true);
             $text = $data['candidates'][0]["content"]["parts"][0]['text'];
+
+            echo json_encode(["status" => "success", "message" => "Please wait, Searching..."]);
 
             //echo $text;
 
@@ -133,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_close($curl);
 
             } else{
-                echo json_encode(["status" => "error", "message" => "missing ID"]);
+                echo json_encode(["status" => "error", "message" => "Missing ID"]);
             }
 
         } else{
