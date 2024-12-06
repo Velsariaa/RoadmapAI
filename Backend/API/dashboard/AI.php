@@ -83,15 +83,24 @@ if (curl_errno($curl)) {
 
     $firstKey = key($data2);
 
-    echo $firstKey;
-    $firstKey1 = "ABCD";
-    $R_ID = 11111111113;
+    $rand_id = random_int(10000000000, 99999999999);
+    $R_ID = $rand_id;
     $U_ID = 11111111114;
     $iter = 1;
 
-    $stmt = $conn->prepare("INSERT INTO roadmap (RoadmapID, UserID, MainTopic, Topic, SubTopic1, SubTopic2, Link, Iteration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisssssi", $R_ID, $U_ID, $firstKey, $firstKey, $firstKey, $firstKey, $firstKey, $iter);
-    $stmt->execute();
+    $firstKey = key($data2); // $data2[$firstKey]
+    foreach ($data2[$firstKey]['roadmap'] as $key) {
+        $topic = $key['topic'];
+        $link = $key['link'];
+        $sub1 = $key['subtopics'][0];
+        $sub2 = $key['subtopics'][1];
+        $stmt = $conn->prepare("INSERT INTO roadmap (RoadmapID, UserID, MainTopic, Topic, SubTopic1, SubTopic2, Link, Iteration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("iisssssi", $R_ID, $U_ID, $firstKey, $topic, $sub1, $sub2, $link, $iter);
+        $stmt->execute();
+        $iter += 1;
+    }
+
+    
 
 
     //SAMPLE CODE
