@@ -58,6 +58,8 @@ export default {
   methods: {
     async submitData() {
       try {
+        axios.defaults.withCredentials = true;
+
         const response = await axios.post('http://localhost/login', {
           username: this.username,
           password: this.password

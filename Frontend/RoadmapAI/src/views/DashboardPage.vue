@@ -32,16 +32,34 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
       return {
           hasRoadmap: false
       };
   },
+
+  mounted() {
+    this.fetchSessionData();
+  },
   methods: {
-      createRoadmap() {
-          this.hasRoadmap = true;
-      }
+    async fetchSessionData() {
+        try {
+            axios.defaults.withCredentials = true;
+
+            const response = await axios.get('http://localhost/Fuckyou');
+            console.log('Response:', response.data);
+            
+        } catch (error) {
+            console.error('There was an error!', error);
+        }
+    },
+
+    createRoadmap() {
+        this.hasRoadmap = true;
+    }
   }
 };
 </script>
