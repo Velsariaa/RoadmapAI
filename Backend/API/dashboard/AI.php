@@ -5,7 +5,7 @@ require("codes/others/connection.php");
 // Replace with your Google API key
 $apiKey = 'AIzaSyBjHJSpWpUJTi5oXh3K2jyy2WNv6Ls-r2M';
 
-$search = "Python Flask";
+$search = "Assembly";
 
 $user_input = "answer this strictly in Json format !!!, make me a roadmap about $search give me exactly 10 main topic with 1 link each where they can learn it also 2 sub topics each... follow this sample format 
 
@@ -87,9 +87,10 @@ if (curl_errno($curl)) {
     $firstKey1 = "ABCD";
     $R_ID = 11111111113;
     $U_ID = 11111111114;
+    $iter = 1;
 
-    $stmt = $conn->prepare("INSERT INTO roadmap (RoadmapID, UserID, MainTopic, Topic, SubTopic1, SubTopic2, Link) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisssss", $R_ID, $U_ID, $firstKey, $firstKey, $firstKey, $firstKey, $firstKey);
+    $stmt = $conn->prepare("INSERT INTO roadmap (RoadmapID, UserID, MainTopic, Topic, SubTopic1, SubTopic2, Link, Iteration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iisssssi", $R_ID, $U_ID, $firstKey, $firstKey, $firstKey, $firstKey, $firstKey, $iter);
     $stmt->execute();
 
 

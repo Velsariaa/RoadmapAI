@@ -107,7 +107,7 @@
                 <b-img :src="testimonial.icon" alt="User Icon" fluid class="testimonial-icon col-lg-4"></b-img>
 
                 <div class="testimonial-name col-lg-8">
-                  <h5>{{ testimonial.name }}</h5>
+                  <h5 class="testimonialName">{{ testimonial.name }}</h5>
                   <p class="testimonial-course">{{ testimonial.course }}</p>
                 </div>
                 <p class="testimonial-desc">{{ testimonial.description }}</p>
