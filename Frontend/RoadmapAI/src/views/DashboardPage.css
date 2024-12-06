@@ -79,3 +79,14 @@ margin: 30px;
 .card-btn{
 box-shadow: 0 5px 5px hsla(0, 0%, 88%, 0.705);
 }
+
+.card-title{
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.card-text{
+  font-size: 18px;
+  font-weight: 200;
+}

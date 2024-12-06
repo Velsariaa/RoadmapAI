@@ -83,6 +83,11 @@ export default {
                     conf_pass: this.conf_pass
                     //verificationCode: this.verificationCode
                 });
+                if(response.data.status == "success") {
+                    this.$router.push('/login');
+                } else {
+                    console.log("BURAT");
+                } 
                 console.log('Response:', response.data);
             } catch (error) {
                 console.error('There was an error!', error);

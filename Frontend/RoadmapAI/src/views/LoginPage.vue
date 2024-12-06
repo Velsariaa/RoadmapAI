@@ -66,7 +66,7 @@ export default {
         });
         console.log('Response:', response.data);
         if(response.data.status == "success") {
-            this.$router.push('/dashboard');
+            this.$router.push('/');
         } else {
             console.log("BURAT");
         }

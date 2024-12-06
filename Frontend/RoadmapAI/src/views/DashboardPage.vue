@@ -8,11 +8,13 @@
             </div>
             
             <!-- Conditional Rendering -->
-            <div v-if="!hasRoadmap" class="content col-lg-12">
+            <div v-if="roadmaps.length === 0" class="content col-lg-12">
               You don't have any roadmaps yet! Start your learning journey by choosing a
               topic and creating your first personalized roadmap.
               <br>
-              <button @click="createRoadmap" class="createbtn col-lg-12">CREATE A NEW ROADMAP</button>
+              <button @click="createRoadmap" class="createbtn col-lg-12">
+                CREATE A NEW ROADMAP
+              </button>
             </div>
             
             <div v-else class="content2 col-lg-12">
@@ -24,6 +26,17 @@
                         </div>
                     </div>
               </button>
+              <!-- Render Roadmap Cards -->
+              <div class="row">
+                <div v-for="roadmap in roadmaps" :key="roadmap.id" class="col-md-4" style="margin-top: 1rem;">
+                  <div class="card" style="width: 100%; height: 220px; cursor: pointer;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ roadmap.mainTopic }}</h5>
+                      <p class="card-text">Roadmap ID: {{ roadmap.id }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
         </div>
@@ -37,28 +50,41 @@ import axios from 'axios';
 export default {
   data() {
       return {
-          hasRoadmap: false
+        
+          roadmaps: [] 
       };
   },
 
-  mounted() {
-    this.fetchSessionData();
+  async mounted() {
+    await this.fetchSessionData();
   },
   methods: {
+    
     async fetchSessionData() {
         try {
             axios.defaults.withCredentials = true;
 
             const response = await axios.get('http://localhost/Fuckyou');
-            console.log('Response:', response.data);
-            
+            console.log('Response:', response.data[0].MainTopic);
+            this.processRoadmaps(response.data);
+
+            if (this.roadmaps.length > 0) {
+              console.log('Roadmaps loaded:', this.roadmaps);
+            }
         } catch (error) {
             console.error('There was an error!', error);
         }
     },
+    processRoadmaps(data) {
+      // Map the data to the desired format and update the roadmaps array
+      this.roadmaps = data.map((item) => ({
+        id: item.RoadmapID, // Replace with actual key for ID
+        mainTopic: item.MainTopic // Replace with actual key for Main Topic
+      }));
+    },
 
     createRoadmap() {
-        this.hasRoadmap = true;
+        this.$router.push('/');
     }
   }
 };

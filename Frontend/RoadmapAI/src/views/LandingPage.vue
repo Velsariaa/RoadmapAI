@@ -258,6 +258,7 @@ export default {
            this.$router.push('/dashboard');
         } else {
             console.log("BURAT");
+            this.$router.push('/dashboard');
         }
       } catch (error) {
         console.error('There was an error!', error);
@@ -265,7 +266,7 @@ export default {
     },
     
     setQuery(topic) {
-      this.query = topic;
+      this.prompt = topic;
     },
     handleNext() {
       console.log("Next button clicked"); // Debugging line
