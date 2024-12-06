@@ -146,6 +146,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: "LandingPage",
   data() {
@@ -246,6 +247,8 @@ export default {
   methods: {
     async search() {
       try {
+        axios.defaults.withCredentials = true;
+
         const response = await axios.post('http://localhost/AI', {
           prompt: this.prompt,
           userID: this.userID

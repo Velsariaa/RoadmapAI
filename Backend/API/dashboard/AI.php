@@ -1,11 +1,11 @@
 <?php
+session_start();
+
 header('Content-Type: application/json');
-// Allow requests from any origin (for development purposes)
-header("Access-Control-Allow-Origin: *");
-// Allow specific HTTP methods (POST, GET, OPTIONS)
+header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-// Allow specific headers
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, Cookie");
+header("Access-Control-Allow-Credentials: true");
 require("codes/others/connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -79,15 +79,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         // Execute the request and capture the response
-        $response = curl_exec($curl);
+        $response = curl_exec($curl);echo json_encode(["status" => "error", "message" => "cURL AI Error"]);
 
         // Check for errors
         if (curl_errno($curl)) {
             echo "cURL Error: " . curl_error($curl);
+            
         } else {
             // Display the response
             $data = json_decode($response, true);
             $text = $data['candidates'][0]["content"]["parts"][0]['text'];
+
+            echo json_encode(["status" => "success", "message" => "Please wait, Searching..."]);
 
             //echo $text;
 
@@ -113,7 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->bind_param("iisssssi", $R_ID, $userID, $firstKey, $topic, $sub1, $sub2, $link, $iter);
                 $stmt->execute();
                 $iter += 1;
+                //echo json_encode(["status" => "success", "message" => "iteration: $iter Sent to database"]);
             }
+            echo json_encode(["status" => "success", "message" => "Na add na daw", "UserID" => $userID, "RoadID" => $R_ID]);
+            $_SESSION['last_search_id'] = $R_ID;
+
 
             
 
@@ -133,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_close($curl);
 
             } else{
-                echo json_encode(["status" => "error", "message" => "missing ID"]);
+                echo json_encode(["status" => "error", "message" => "Missing ID"]);
             }
 
         } else{

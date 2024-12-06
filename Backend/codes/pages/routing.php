@@ -19,6 +19,9 @@ switch($user_link){
     case "/AI":
         require("API/dashboard/AI.php");
         break;
+    case "/Fuckyou":
+        require("API/dashboard/AIDashboard.php");
+        break;
     case "/verification":
         require("API/account/googleverification.php");
         break;
