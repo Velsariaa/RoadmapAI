@@ -70,7 +70,13 @@ margin-top: 20px;
 width: 100%;
 height: auto;
 box-shadow: 0 10px 15px hsla(0, 0%, 88%, 0.705);
+transition: transform 0.3s ease;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
 
 .card-body{
 margin: 30px;
