@@ -33,7 +33,7 @@ html, body, .landing-page {
 
 .title {
   
-
+  text-align: center;
   font-weight: 800;
   font-size: 70px;
   line-height: 80px;
@@ -47,6 +47,18 @@ html, body, .landing-page {
   margin-bottom: 20px;
 }
 
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 img.roadmapImg {
   border-radius: 10px;
   max-width: 100%;
@@ -55,6 +67,8 @@ img.roadmapImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  animation: floating 3s infinite ease-in-out; /* Looping animation */
+  transition: transform 0.3s ease;
 }
 
 .search-container {
@@ -154,4 +168,17 @@ img.roadmapImg {
     font-size: 12px;
     padding: 10px;
   }
+}
+
+
+.validation{
+  text-align: center;
+  padding-top: 20px;
+  font-size: 18px;
+}
+
+.valid{
+  color: #2EBBD4;
+  text-decoration: underline;
+  cursor: pointer;
 }

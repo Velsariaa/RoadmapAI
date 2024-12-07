@@ -8,12 +8,22 @@
 }
 
 .roadmapImg {
+  animation: floating 3s infinite ease-in-out; /* Looping animation */
   transition: transform 0.3s ease;
 }
 
-.roadmapImg:hover {
-  transform: translateY(-5px);
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
+
 
 
 

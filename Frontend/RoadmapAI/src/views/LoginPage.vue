@@ -9,7 +9,7 @@
   
           <!-- Column 2: Title, Subtitle, and Prompt Bar -->
           <div class="col-lg-7">
-          <h1 class="title mb-2">Welcome Back!</h1>
+          <h1 class="title mb-2">Welcome!</h1>
           <p class="subtitle mb-4">Please enter your details.</p>
 
           <form @submit.prevent="submitData">
@@ -36,7 +36,7 @@
 
             <button class="loginBtn" type="submit">LOGIN</button>
             </form>
-  
+            <p class="validation">Don't have an account? <span class="valid" @click="goToRegister">Register now!</span></p>
           </div>
       </div>
       </div>
@@ -56,6 +56,9 @@ export default {
   },
 
   methods: {
+    goToRegister() {
+            this.$router.push('/signup');
+        },
     async submitData() {
       try {
         axios.defaults.withCredentials = true;
