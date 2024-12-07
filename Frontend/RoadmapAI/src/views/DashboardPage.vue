@@ -29,7 +29,7 @@
               <!-- Render Roadmap Cards -->
               <div class="row">
                 <div v-for="roadmap in roadmaps" :key="roadmap.id" class="col-md-4" style="margin-top: 1rem;">
-                  <div class="card" @click="sendData" style="width: 100%; height: 220px; cursor: pointer;">
+                  <div class="card" @click="sendData(roadmap.id)" style="width: 100%; height: 220px; cursor: pointer;">
                     <div class="card-body">
                       <i class="fa-solid fa-diagram-project" style="color: #00bcd4; font-size: 44px;"></i>
                       <h5 class="card-title">{{ roadmap.mainTopic }}</h5>
@@ -60,12 +60,12 @@ export default {
     await this.fetchSessionData();
   },
   methods: {
-    async sendData() {
+    async sendData(test) {
       try {
         axios.defaults.withCredentials = true;
-
+        console.log("Roadmap:",test);
         const response = await axios.post('http://localhost/Fuckyou2', {
-          RoadmapID: this.RoadmapID,
+          RoadmapID: test,
         });
         console.log('Response:', response.data);
         if(response.data.status == "success") {

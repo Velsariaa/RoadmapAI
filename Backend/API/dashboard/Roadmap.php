@@ -16,8 +16,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
         $rid = $_SESSION["Roadmap-id-now"];
         $uid = $_SESSION['USER_ID'];
 
-        $stmt = $conn->prepare("SELECT * FROM roadmap WHERE UserID = ? AND RoadmapID = ?");
-        $stmt->bind_param("ii", $uid, $rid);
+        $stmt = $conn->prepare("SELECT * FROM roadmap WHERE RoadmapID = ?");
+        $stmt->bind_param("i", $rid);
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -31,8 +31,12 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
         $stmt->close();
         $conn->close();
 
+    } else {
+        echo json_encode(["status"=>"error", "message"=>"No R ID"]);
     }
 
+} else {
+    echo json_encode(["status"=>"error", "message"=>"No Method"]);
 }
 
 ?>
