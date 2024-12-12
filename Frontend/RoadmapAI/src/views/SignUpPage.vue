@@ -38,11 +38,11 @@
                         Verification Code
                         <div class="verification-container">
                             <label class="checkbox-label">
-                                <input type="checkbox" v-model="isChecked" class="checkbox-custom" />
+                                <input type="checkbox" v-model="isChecked" class="checkbox-custom" @change="isChecked ? submitEmail() : null"/>
                                 Send Verification Code
                             </label>
                             <input type="text" v-model="verificationCode" placeholder="Enter Verification Code"
-                                :disabled="!isChecked" class="verification-input" />
+                                :disabled="!isChecked" class="verification-input"/>
                         </div>
 
                         <button class="loginBtn" type="submit">CREATE ACCOUNT</button>
@@ -92,7 +92,21 @@ export default {
             } catch (error) {
                 console.error('There was an error!', error);
             }
-        }
+        },
+        async submitEmail() {
+            try {
+                axios.defaults.withCredentials = true;
+                const response = await axios.post('http://localhost/verification', {
+                    email: this.email,
+                    //verificationCode: this.verificationCode
+                });
+                if(response.data.status == "success") {
+                    console.log(response.data)
+                }
+            } catch (error) {
+                console.error('There was an error!', error);
+            }
+        },
     }
 };
 
