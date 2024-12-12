@@ -1,47 +1,71 @@
 <?php
+session_start();
+
+header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, Cookie");
+header("Access-Control-Allow-Credentials: true");
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
-require 'vendor/autoload.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-//Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
+    $data = json_decode(file_get_contents("php://input"));
 
-try {
-    //Server settings
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'ue.roadmap.ai@gmail.com';                     //SMTP username
-    $mail->Password   = 'ayyn ezes xgfc zqty ';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;          //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    if (isset($data->email)) {
+        
+        $email = $data->email;
 
-    //Recipients
-    $mail->setFrom('ue.roadmap.ai@gmail.com', 'RoadmapAI');
-    $mail->addAddress('renzoisaac912@gmail.com', 'Roadmap User');     //Add a recipient
-    //$mail->addReplyTo('guiribajustin2004@gmail.com', 'RoadmapAI');
+        //Load Composer's autoloader
+        require 'vendor/autoload.php';
 
-    // //Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
 
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'RoadMap AI Email Verification';
-    $mail->Body    = 'Your OTP Password is <b>N1664</b>';
+        try {
+            //Server settings
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'ue.roadmap.ai@gmail.com';                     //SMTP username
+            $mail->Password   = 'ayyn ezes xgfc zqty ';                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;          //Enable implicit TLS encryption
+            $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    $mail->send();
+            //Recipients
+            $mail->setFrom('ue.roadmap.ai@gmail.com', 'RoadmapAI');
+            $mail->addAddress($email, 'Roadmap User');     //Add a recipient
+            //$mail->addReplyTo('guiribajustin2004@gmail.com', 'RoadmapAI');
 
-    
+            // //Attachments
+            // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $randomNumber = random_int(100000, 999999);
+
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = 'RoadMap AI Email Verification';
+            $mail->Body    = "Your OTP Password is <b>$randomNumber</b>";
+
+            $mail->send();
+
+            
+
+            echo json_encode(["status" => "success", "message" => "Posted", "VCode" => $randomNumber]);
+
+        } catch (Exception $e) {
+            echo json_encode(["status" => "error", "message" => $mail->ErrorInfo]);
+        }
+    } else {
+        echo json_encode(["status" => "error", "message" => "Invalid Email"]);
+    }
+
+} else {
+    echo json_encode(["status" => "error", "message" => "NOT POST"]);
 }
-
 ?>

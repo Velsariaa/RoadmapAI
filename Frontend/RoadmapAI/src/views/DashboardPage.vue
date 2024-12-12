@@ -102,7 +102,7 @@ export default {
     },
 
     createRoadmap() {
-        this.$router.push('/');
+        this.$router.push('/home');
     }
   }
 };
