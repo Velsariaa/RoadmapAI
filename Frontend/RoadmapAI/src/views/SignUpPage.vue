@@ -66,7 +66,8 @@ export default {
             password: '',
             conf_pass: '',
             confirmpassword: '',
-            verificationCode: ''
+            verificationCode: '',
+            verificationSent: ''
         };
     },
     methods: {
@@ -77,24 +78,28 @@ export default {
             if(this.isChecked) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (emailRegex.test(this.email)) {
-                    try {
-                        axios.defaults.withCredentials = true;
+                    if(this.verificationCode == this.verificationSent){
+                        try {
+                            axios.defaults.withCredentials = true;
 
-                        const response = await axios.post('http://localhost/register', {
-                            username: this.username,
-                            email: this.email,
-                            password: this.password,
-                            conf_pass: this.conf_pass
-                            //verificationCode: this.verificationCode
-                        });
-                        if(response.data.status == "success") {
-                            this.$router.push('/login');
-                        } else {
-                            console.log("BURAT");
-                        } 
-                        console.log('Response:', response.data);
-                    } catch (error) {
-                        console.error('There was an error!', error);
+                            const response = await axios.post('http://localhost/register', {
+                                username: this.username,
+                                email: this.email,
+                                password: this.password,
+                                conf_pass: this.conf_pass
+                                //verificationCode: this.verificationCode
+                            });
+                            if(response.data.status == "success") {
+                                this.$router.push('/login');
+                            } else {
+                                console.log("BURAT");
+                            } 
+                            console.log('Response:', response.data);
+                        } catch (error) {
+                            console.error('There was an error!', error);
+                        }
+                    } else {
+                        alert("Verification code doesn't match");
                     }
                 } else {
                     alert("Enter a valid Email.");
@@ -113,6 +118,7 @@ export default {
                 });
                 if(response.data.status == "success") {
                     console.log(response.data)
+                    this.verificationSent = response.data.VCode;
                 }
             } catch (error) {
                 console.error('There was an error!', error);
