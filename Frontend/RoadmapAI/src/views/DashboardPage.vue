@@ -83,27 +83,32 @@ export default {
             axios.defaults.withCredentials = true;
 
             const response = await axios.get('http://localhost/Fuckyou');
-            console.log('Response:', response.data[0].MainTopic);
-            this.processRoadmaps(response.data);
+            
+            // Check if response.data is not empty or undefined
+            if (response.data && response.data.length > 0) {
+                console.log('Response:', response.data[0].MainTopic);
+                this.processRoadmaps(response.data);
 
-            if (this.roadmaps.length > 0) {
-              console.log('Roadmaps loaded:', this.roadmaps);
+                if (this.roadmaps.length > 0) {
+                    console.log('Roadmaps loaded:', this.roadmaps);
+                }
             }
         } catch (error) {
             console.error('There was an error!', error);
         }
     },
     processRoadmaps(data) {
-    // Check if data is valid and has values
-    if (!data || data.length === 0) {
-        return; // Exit the function if data is null, undefined, or empty
-    }
+        // Check if data is valid, is an array, and has values
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            console.error('Invalid data:', data); // Log the invalid data for debugging
+            return; // Exit the function if data is null, undefined, or not an array
+        }
 
-    // Map the data to the desired format and update the roadmaps array
-    this.roadmaps = data.map((item) => ({
-        id: item.RoadmapID, // Replace with actual key for ID
-        mainTopic: item.MainTopic // Replace with actual key for Main Topic
-    }));
+        // Map the data to the desired format and update the roadmaps array
+        this.roadmaps = data.map((item) => ({
+            id: item.RoadmapID, // Replace with actual key for ID
+            mainTopic: item.MainTopic // Replace with actual key for Main Topic
+        }));
     },
     createRoadmap() {
         this.$router.push('/home');
