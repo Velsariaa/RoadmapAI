@@ -64,8 +64,9 @@ export default {
             username: '',
             email: '',
             password: '',
+            conf_pass: '',
             confirmpassword: '',
-            //verificationCode: ''
+            verificationCode: ''
         };
     },
     methods: {
