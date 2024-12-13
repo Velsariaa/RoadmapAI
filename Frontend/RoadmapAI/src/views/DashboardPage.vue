@@ -94,13 +94,17 @@ export default {
         }
     },
     processRoadmaps(data) {
-      // Map the data to the desired format and update the roadmaps array
-      this.roadmaps = data.map((item) => ({
+    // Check if data is valid and has values
+    if (!data || data.length === 0) {
+        return; // Exit the function if data is null, undefined, or empty
+    }
+
+    // Map the data to the desired format and update the roadmaps array
+    this.roadmaps = data.map((item) => ({
         id: item.RoadmapID, // Replace with actual key for ID
         mainTopic: item.MainTopic // Replace with actual key for Main Topic
-      }));
+    }));
     },
-
     createRoadmap() {
         this.$router.push('/home');
     }

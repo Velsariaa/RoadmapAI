@@ -74,24 +74,34 @@ export default {
             this.$router.push('/login');
         },
         async submitData() {
-            try {
-                axios.defaults.withCredentials = true;
+            if(this.isChecked) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(this.email)) {
+                    try {
+                        axios.defaults.withCredentials = true;
 
-                const response = await axios.post('http://localhost/register', {
-                    username: this.username,
-                    email: this.email,
-                    password: this.password,
-                    conf_pass: this.conf_pass
-                    //verificationCode: this.verificationCode
-                });
-                if(response.data.status == "success") {
-                    this.$router.push('/login');
+                        const response = await axios.post('http://localhost/register', {
+                            username: this.username,
+                            email: this.email,
+                            password: this.password,
+                            conf_pass: this.conf_pass
+                            //verificationCode: this.verificationCode
+                        });
+                        if(response.data.status == "success") {
+                            this.$router.push('/login');
+                        } else {
+                            console.log("BURAT");
+                        } 
+                        console.log('Response:', response.data);
+                    } catch (error) {
+                        console.error('There was an error!', error);
+                    }
                 } else {
-                    console.log("BURAT");
-                } 
-                console.log('Response:', response.data);
-            } catch (error) {
-                console.error('There was an error!', error);
+                    alert("Enter a valid Email.");
+                }
+
+            } else {
+                    alert("Please verify your account first.");
             }
         },
         async submitEmail() {
