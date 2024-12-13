@@ -23,9 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         while ($row = $result->fetch_assoc()) {
             $test[]=$row;
-            
         }
-        echo json_encode($test);
+        if(isset($test)) {
+            echo json_encode($test);
+        }
         $stmt->close();
         $conn->close();
         
